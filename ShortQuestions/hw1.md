@@ -52,7 +52,7 @@
 
 10. **What is the lifecycle of maven? could you tell me the details?**
 
-    The lifecycle is defined by a list of build phases. The default lifecycle comprises of the following phases:
+    The lifecycle is defined by a list of build phases. A Typical lifecycle comprises of the following phases:
 
     - ```validate``` - it validates the project and all required information are correct
     - ```compile``` - it compiles the source code, converts the .java files to .class
