@@ -46,6 +46,7 @@
         - default (or build): the processing of project deployment
         - site: Processing of project site document creation
     * A typical Maven build life cycle consists of the following sequence of phases:
+
 | Phase | Handles | Description |
 | :-----| ----: | :----: |
 | prepare- resources | resource copying | Resource copying can be customized in this phase. |
