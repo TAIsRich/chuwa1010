@@ -6,7 +6,7 @@ for Q1
 
 ~~mistaken~~
 
-**This is_extremely important_ text**
+**This is _extremely important_ text**
 
 ***all important***
 
