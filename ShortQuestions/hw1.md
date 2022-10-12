@@ -47,7 +47,7 @@ Third, checkout back to the branch_learn_stash branch:
 ```git stash pop```
 
 - 2) IntelliJ way:
-In the IntelliJ, we need to do the following.
+In the IntelliJ, we need to do the following.  
 First, stash new code before leaving the branch_learn_stash branch:  
 Git ==> Stash Changes ==> create stash
 Second, go to the master branch:  

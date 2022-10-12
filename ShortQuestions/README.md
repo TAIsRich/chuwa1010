@@ -1,14 +1,14 @@
 # Basic Usage of MarkDown
 
 ## 1) Headings: 
-`#`: The largest heading
-`##`: The second largest heading
+`#`: The largest heading  
+`##`: The second largest heading  
 `######`: The smallest heading
 
 ## 2) Styling text
-Bold: ** Bold **
-Italic: * Italic *
-All bold and italic: *** All bold and italic ***
+Bold: **Bold**  
+Italic: *Italic*  
+All bold and italic: ***All bold and italic***
 
 ## 3) Quoting text: `>`
 Text that is not a quote
