@@ -80,9 +80,46 @@ Overloading:
 **this** is used to access method of the current class.
 
 ### What is the Java load sequence?
+In order to actually load a class, the JVM uses Classloader objects. Every already loaded class contains a reference to its class loader, and that class loader is used to load all the classes referenced from that class.
 
+The class loaders in the JVM are organized into a tree hierarchy, in which every class loader has a parent. Prior to locating and loading a class, a good practice for a class loader is to check whether the class’s parent can load—or already has loaded—the required class.
 
+(https://blogs.oracle.com/javamagazine/post/how-the-jvm-locates-loads-and-runs-libraries)
 ### What is Polymorphism ? And how Java implements it ?
+Polymorphism refers to the same object exhibiting different forms and behaviors. It has static Polymorphism (overload) and dynamic Polymorphism(override). 
+
+For example, a class Animal has a method called Sound, 2 other classes named Bird and Cat extend from Animal class with the same method called Sound. We can override the Sound method in the child class based on the requirement of each Animal. 
+
+With method overloading, multiple methods can have the same name with different parameters
+
 ### What is Encapsulation ? How Java implements it? And why we need encapsulation?
+Encapsulation in Java is a mechanism of wrapping the data (variables) and code acting on the data (methods) together as a single unit. In encapsulation, the variables of a class will be hidden from other classes, and can be accessed only through the methods of their current class. Therefore, it is also known as data hiding.
+
+To achieve encapsulation in Java 
+- Declare the variables of a class as private.
+- Provide public setter and getter methods to modify and view the variables values.
+
+Benefits of Encapsulation
+- The fields of a class can be made read-only or write-only.
+- A class can have total control over what is stored in its fields.
+
 ### What is Interface and what is abstract class? What are the differences between them?
+Interface:
+1. Interface is a class can implement multiple interfaces.
+2. Interface doesn't have access modifiers, only public modifier inside the interface.
+3. Interface annot contain data field.
+4. Interface help define a class's peripheral ability.
+
+Abstract class:
+1. The class can only inherit one abstract class.
+2. Abstract class can have an access modifier.
+3. Abstract class can have data field.
+4. Abstract class defines the identity of a class
+
 ### What are Queue interface implementations and what are the differences and when to use what?
+The Queue interface is present in java.util package and extends the Collection interface is used to hold the elements about to be processed in FIFO(First In First Out) order. It is an ordered list of objects with its use limited to inserting elements at the end of the list and deleting elements from the start of the list, (i.e.), it follows the FIFO or the First-In-First-Out principle.
+
+- LinkedList and PriorityQueue are the classes that implement the Queue interface. ArrayBlockingQueue is yet another class that implements the Queue interface.
+- The Deque is a queue that supports insertion and deletion from both the ends. The deque is thread-safe.
+- BlockingQueues are thread-safe and are used to implement producer-consumer problems. BlockingQueues do not allow null elements. A NullPointerException is thrown if any operation related to null values is attempted.
+(https://www.geeksforgeeks.org/queue-interface-java/)
