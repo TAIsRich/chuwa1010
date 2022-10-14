@@ -2,15 +2,15 @@
 
    \1. Encapsulation; 
 
-   ![1665693289403](/Users/chya/Documents/1665693289403.jpg)
+   ![1665693289403](https://raw.githubusercontent.com/yanch-1/yyy/main/1665693289403.jpg?token=GHSAT0AAAAAABZ3RNKWJTD6FW3KHL45U7XGY2JZELA)
 
    \2. Polymorphism; 
 
-   ![1665693917899](/Users/chya/Documents/1665693917899.jpg)
+   ![1665693917899](https://raw.githubusercontent.com/yanch-1/yyy/main/1665693917899.jpg?token=GHSAT0AAAAAABZ3RNKXMVNLENRF3FJTLCZWY2JZE5A)
 
    \3. Inheritance;
 
-   ![1665693587071](/Users/chya/Documents/1665693587071.jpg)
+   ![1665693587071](https://raw.githubusercontent.com/yanch-1/yyy/main/1665693587071.jpg?token=GHSAT0AAAAAABZ3RNKXRYGZD73HYLELD2JCY2JZFNQ)
 
 2. What is **wrapperclass** in Java and Why we need wrapper class?
 
@@ -24,7 +24,7 @@
    - HashMap allows one null key and multiple null values whereas Hashtable doesn’t allow any null key or value.
    - HashMap is generally preferred over HashTable if thread synchronization is not needed.
 
-   ![1665694093956](/Users/chya/Documents/1665694093956.jpg)
+   ![1665694093956](https://raw.githubusercontent.com/yanch-1/yyy/main/1665694093956.jpg?token=GHSAT0AAAAAABZ3RNKWR237HMAURMJPJOKCY2JZHAQ)
 
 4. What is **Stringpool** in Java and why we need Stringpool?
 
@@ -79,7 +79,7 @@
 
 9. What is the differences between **overriding** and **overloading**?
 
-   ![1665696556714](/Users/chya/Documents/1665696556714.jpg)
+   ![1665696556714](https://raw.githubusercontent.com/yanch-1/yyy/main/1665696556714.jpg?token=GHSAT0AAAAAABZ3RNKWR5WW6KZWORS3SMOWY2JZHOA)
 
 10. What is the differences between **super** and **this**?
 
@@ -87,9 +87,9 @@
 
 11. What is the Java **load sequence**?
 
-    ![1665706928048](/Users/chya/Documents/1665706928048.jpg)
+    ![1665706928048](https://raw.githubusercontent.com/yanch-1/yyy/main/1665706928048.jpg?token=GHSAT0AAAAAABZ3RNKXDLPAKPYUKJYSJ5HWY2JZH4Q)
 
-    ![1665706955820](/Users/chya/Documents/1665706955820.jpg)
+    ![1665706955820](https://raw.githubusercontent.com/yanch-1/yyy/main/1665706955820.jpg?token=GHSAT0AAAAAABZ3RNKXH6MDAYU4H56JSDDWY2JZIHA)
 
 12. What is **Polymorphism** ? And how Java implements it ?
 
