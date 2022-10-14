@@ -35,7 +35,7 @@ public class main {
 
         b2.setFirstName("Jerry");
         b2.setLastName("Smith");
-        b2.setUsername("jerrysmit102");
+        b2.setUsername("jerrysmith102");
         b2.setEmail("jerrysmith102@sample.org");
         b2.setBalance(666.10);
 
