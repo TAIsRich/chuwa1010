@@ -23,10 +23,10 @@ PR is pull request
 8.What is maven role ? what it be used to do ?  
 Manage Dependencies Build Project Documentation Reporting
 
-9.What is the lifecycle of maven? could you tell me the details ?   clean, prepare resources, validate, package, install
-10.what is the difference between package and install in maven lifecycle ?   package creates the JAR/WAR package as mentioned in the packaging in POM.xml install installs the package in local/remote maven repository
-11.What is plugins in maven, list some plugins.   plugins are the central feature of Maven that allow for the reuse of common build logic across multiple projects.
+9.What is the lifecycle of maven? could you tell me the details ?     clean, prepare resources, validate, package, install  
+10.what is the difference between package and install in maven lifecycle ?     package creates the JAR/WAR package as mentioned in the packaging in POM.xml install installs the package in local/remote maven repository  
+11.What is plugins in maven, list some plugins.     plugins are the central feature of Maven that allow for the reuse of common build logic across multiple projects.  
 12.In chuwa1010, MavenProject directory, create a maven Module using Intellij, named it as belows:
 groupID: com.chuwa.learn
-artifactID: java-core
+artifactID: java-core  
 13.Do Code Review: Go over the PRs in your repo, tried to leave some useful or useful comments in other students' PR, please don't merge it
