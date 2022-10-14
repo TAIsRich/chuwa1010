@@ -38,13 +38,50 @@ Access modifier： keywords that can be used to control the visibility of fields
 1. private: only can see from the same class.
 2. Default:  can see from the same class, same package and same package non-subclass.
 3. protected: can see from the same class, same package, same package non-subclass and different package subclass.
-4. public: can see from the same class, same package, same package non-subclass, different package subclass and different class non-subclass.### What is final key word? (Filed, Method, Class)
+4. public: can see from the same class, same package, same package non-subclass, different package subclass and different class non-subclass.
+
+### What is final key word? (Filed, Method, Class)
+The final keyword is a non-access modifier used for classes, attributes and methods, which makes them non-changeable (impossible to inherit or override).
+
+The final keyword is useful when you want a variable to always store the same value, like PI (3.14159...).
 
 ### What is static keyword? (Filed, Method, Class). When do we usually use it?
+The static keyword in Java is mainly used for memory management. The static keyword in Java is used to share the same variable or method of a given class. The users can apply static keywords with variables, methods, blocks, and nested classes. The static keyword belongs to the class than an instance of the class. The static keyword is used for a constant variable or a method that is the same for every instance of a class.
+
+(https://www.geeksforgeeks.org/static-keyword-java/)
 
 ### What is the differences between overriding and overloading?
+
+Overriding occurs when the method signature is the same in the superclass and the child class. 
+
+Overloading occurs when two or more methods in the same class have the same name but different parameters.
+
+Overriding: 
+1. Overriding is Dynamic polymorphism - run time
+   - Method overriding is the process of redefining a parent class's method in a subclass.
+2. Overriding gives less performance because the binding is being done at run time
+3. Private and final methods can not be overridden.
+4. Return type of method must be the same in the case of overriding.
+5. Argument myst be the sam ein the case of overriding.
+6. Base and derived(child) classes are required here.
+7. Mostly used to provide the implementation of the method that is provided by its base class.
+
+Overloading:
+1. Overloading is static polymorphism - compile time
+2. Overloading gives better performance because the binding is being done at compile time. 
+3. Private and final methods can be overloaded.
+4. Return type of method does not matter in case of method overloading.
+5. Arguments must be different in the case of overloading.
+6. It is being done in the same class.
+7. Mostly used to increase the readability of the code.
+
 ### What is the differences between super and this?
+**super** is used to access method of the parent class.
+**this** is used to access method of the current class.
+
 ### What is the Java load sequence?
+
+
 ### What is Polymorphism ? And how Java implements it ?
 ### What is Encapsulation ? How Java implements it? And why we need encapsulation?
 ### What is Interface and what is abstract class? What are the differences between them?
