@@ -17,9 +17,17 @@
    step 1: git checkout master
    step 2: git merge branch_test
 6. How to stash your new code before leaving branch branch_learn_stash and pop your stash when you checkout back to **branch_learn_stash ?
-   (before git add any changes) git stash: to save the changes
+   1) (before git add any changes) git stash: to save the changes
    when change back to the branch: git stash pop: to get the saved changes.
    git add, git commit
+    2) IntelliJ way:
+       In the IntelliJ, we need to do the following.  
+       First, stash new code before leaving the branch_learn_stash branch:  
+       Git ==> Stash Changes ==> create stash
+       Second, go to the master branch:  
+       Git ==> Branches ==> master  
+       Third, checkout back to the branch_learn_stash branch:  
+       Git ==> Unstash changes ==> select the stash@{0} ==> apply stash
 7. How do you understand PR is based on Branch?
    main branch is like the main stream; the other branches that created from the main branch contain different changes
    which will eventually merge into the main branch.
