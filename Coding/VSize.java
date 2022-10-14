@@ -1,3 +1,5 @@
-public enum VSize{
-  CarSize, Motorcycle,
+package ParkingLot;
+
+public enum VSize {
+	CarSize, Motorcycle, 
 }
