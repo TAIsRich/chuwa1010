@@ -178,34 +178,45 @@ HW2
 
 It is created to decrease the number of string objects created in the memory. Whenever a new string is created, JVM first checks the string pool. If it encounters the same string, then instead of creating a new string, it returns a reference existing string to the variable. 
 
-1. *What is Java garbage collection?*
-   
-    Garbage collection (GC) is a memory recovery feature built in Java. One or more garbage collectors (GC engines) that automatically free up memory space that has been allocated to objects no longer needed by the program. Automatic memory management can eliminate common problems such as forgetting to free an object and causing a memory leak or attempting to access freed memory for an object that's already been freed.
-    
-    The garbage collector provides the following benefits:
-    
-    - Frees developers from having to manually release memory.
-    - Allocates objects on the managed heap efficiently.
-    - Reclaims objects that are no longer being used, clears their memory, and keeps the memory available for future allocations. Managed objects automatically get clean content to start with, so their constructors don't have to initialize every data field.
-    - Provides memory safety by making sure that an object can't use for itself the memory allocated for another object.
-    
-2. *What are access modifiers and their scopes in Java?*
-Access modifiers are keywords that can be used to control the visibility of fields, methods, and constructors in a class. The four access modifiers in Java are public, protected, default, and private.
+5. *What is Java garbage collection?*
 
-![Untitled](week1%20bca67d1ac97a42239d63a812fc38756f/Untitled.png)
+Garbage collection (GC) is a memory recovery feature built in Java. One or more garbage collectors (GC engines) that automatically free up memory space that has been allocated to objects no longer needed by the program. Automatic memory management can eliminate common problems such as forgetting to free an object and causing a memory leak or attempting to access freed memory for an object that's already been freed.
 
- *7. What is final key word? (Filed, Method, Class)*
+The garbage collector provides the following benefits:
 
-The *final* keyword is a non-access modifier used for classes, attributes and methods, which makes them non-changeable (impossible to inherit or override).   
+- Frees developers from having to manually release memory.
+
+- Allocates objects on the managed heap efficiently.
+
+- Reclaims objects that are no longer being used, clears their memory, and keeps the memory available for future allocations. Managed objects automatically get clean content to start with, so their constructors don't have to initialize every data field.
+
+- Provides memory safety by making sure that an object can't use for itself the memory allocated for another object.
+
+  
+
+   6.*What are access modifiers and their scopes in Java?*
+  Access modifiers are keywords that can be used to control the visibility of fields, methods, and constructors in a class. The four access modifiers in Java are public, protected, default, and private.
+
+![ ](/Users/mengyunwang/Downloads/Untitled.png) 
+
+*7. What is final key word? (Filed, Method, Class)*
+
+   The *final* keyword is a non-access modifier used for classes, attributes and methods, which makes them non-changeable (impossible to inherit or override).   
 
 7.1 final Variable
  Purpose: define constants
 7.2 final Method
  Purpose: prevent override
 7.3 final Class
-Purpose:
+ Purpose: prevent inherit
+
+We use final key word to:
+
 1. prevent inheritance, like Integer, String etc;
+
 2. Make class immutable
+
+   
 
 *8. What is static keyword? (Filed, Method, Class). When do we usually use it?*
 
@@ -235,7 +246,14 @@ When to use static methods ?
 
 *10. What is the differences between super and this?*
 
-| --- | --- | --- |
+| Key  |              Keyword               |                             this                             | super                                                        |
+| :--: | :--------------------------------: | :----------------------------------------------------------: | ------------------------------------------------------------ |
+|  1   |      Represent and Reference       | this keyword mainly represents the current instance of a class. | On other hand super keyword represents the current instance of a parent class. |
+|  2   | Interaction with class constructor | this keyword used to call default constructor of the same class. | super keyword used to call default constructor of the parent class. |
+|  3   |        Method accessibility        | this keyword used to access methods of the current class as it has reference of current class. | One can access the method of parent class with the help of super keyword. |
+|  4   |           Static context           | this keyword can be referred from static context i.e can be invoked from static instance. For instance we can write System.out.println(this.x) which will print value of x without any compilation or runtime error. | On other hand super keyword can't be referred from static context i.e can't be invoked from static instance. For instance we cannot write System.out.println(super.x) this will leads to compile time error. |
+
+ 
 
 *11. What is the Java load sequence?*
 
@@ -306,11 +324,20 @@ We can create the Abstract class by using the “Abstract” keyword before the 
 
 An **interface** is a template which has only method declarations and not the method implementation.
 
-| Abstract Class | Interfaces |
-| --- | --- |
+| Abstract Class                                               | Interfaces                                                   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| An abstract class can provide complete, default code and/or just the details that have to be overridden | An interface cannot provide any code at all, just the signature |
+| In the case of an abstract class, a class may extend only one abstract class | A Class may implement several interfaces                     |
+| An abstract class can have non-abstract methods              |                                                              |
+| (both abstract and non-abstract methods)                     | All methods of an Interface are abstract                     |
+| (only abstract methods)                                      |                                                              |
+| An abstract class can have instance variables                | An Interface cannot have instance variables                  |
+| An abstract class can have any visibility: public, private, protected | An Interface visibility must be public (or) none             |
+| If we add a new method to an abstract class then we have the option of providing default implementation and therefore all the existing code might work properly | If we add a new method to an Interface then we have to track down all the implementations of the interface and define implementation for the new method |
 
 *15. design a parking lot (put the code to codingQuestions/coding1 folder, )*
      Please see the code in codingQuestions/coding1
+
 ****
 
  *16. What are Queue interface implementations and what are the differences and when to use what?*
