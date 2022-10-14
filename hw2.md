@@ -1,14 +1,14 @@
 1. Write up Example code to demonstrate the three foundmental concepts of OOP. (reference Code Demorepo as example)
 
-1. Encapsulation;
-public class Encapsulation{
-    private int a=1;
-    get A(){
-    }
-    set A(int a){
-        this.a=a;
-    }
-}
+1. Encapsulation;  
+public class Encapsulation{  
+    private int a=1;  
+    get A(){  
+    }  
+    set A(int a){  
+        this.a=a;  
+    }  
+}  
 2. Polymorphism;
 public class Polymorphism{
     public class Mathma(){
