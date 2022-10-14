@@ -2,7 +2,7 @@
 
    \1. Encapsulation; 
 
-   ![1665693289403](https://raw.githubusercontent.com/yanch-1/yyy/main/1665693289403.jpg?token=GHSAT0AAAAAABZ3RNKWJTD6FW3KHL45U7XGY2JZELA)
+   ![1665693289403](https://raw.githubusercontent.com/yanch-1/yyy/main/1665693289403.jpg?token=GHSAT0AAAAAABZ3RNKXSY4QRAXJAHJMWEFWY2JZK3Q)
 
    \2. Polymorphism; 
 
