@@ -1,5 +1,5 @@
 public class Car extends Vehicle{
-    private String type;
+    private String type;//Sedan, SUV, Convertible, etc.
 
     public Car(){};
 
@@ -8,6 +8,11 @@ public class Car extends Vehicle{
         this.type = type;
     }
 
-    //TODO: write getters
-    //TODO: write setters
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

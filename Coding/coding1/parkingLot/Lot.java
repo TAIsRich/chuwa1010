@@ -18,7 +18,37 @@ public class Lot {
         }
     }
 
-    //TODO: write getters
+    public String getAddress() {
+        return address;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public Employee getManager() {
+        return manager;
+    }
+
+    public Employee getSecurity() {
+        return security;
+    }
+
+    public ArrayList<Space> getAvailableSpaces() {
+        return availableSpaces;
+    }
+
+    public ArrayList<Space> getOccupiedSpaces() {
+        return occupiedSpaces;
+    }
+
+    public void setAvailableSpaces(ArrayList<Space> availableSpaces) {
+        this.availableSpaces = availableSpaces;
+    }
+
+    public void setOccupiedSpaces(ArrayList<Space> occupiedSpaces) {
+        this.occupiedSpaces = occupiedSpaces;
+    }
 
     public void setManager(Employee manager) {
         this.manager = manager;

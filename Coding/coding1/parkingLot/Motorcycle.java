@@ -7,6 +7,12 @@ public class Motorcycle extends Vehicle{
         super(licensePlate, stateAbbr, phoneNum);
         this.type = type;
     }
-    //TODO: write getters
-    //TODO: write setters
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

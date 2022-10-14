@@ -1,3 +1,4 @@
+import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class Space {
@@ -13,11 +14,47 @@ public class Space {
         this.spaceNum = spaceNum;
     }
 
-    //TODO: write getters
-    //TODO: write setters
+    public int getSpaceNum() {
+        return spaceNum;
+    }
+
+    public void setSpaceNum(int spaceNum) {
+        this.spaceNum = spaceNum;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public double getRatePerHr() {
+        return ratePerHr;
+    }
+
+    public void setRatePerHr(double ratePerHr) {
+        this.ratePerHr = ratePerHr;
+    }
+
+    public boolean isOccupied() {
+        return isOccupied;
+    }
+
+    public void setOccupied(boolean occupied) {
+        isOccupied = occupied;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
+    }
 
     public void park(Vehicle vehicle){
-        //list more rate
         this.vehicle = vehicle;
         if(vehicle instanceof Car){
             ratePerHr = 10;
@@ -26,21 +63,24 @@ public class Space {
         }else if (vehicle instanceof Motorcycle){
             ratePerHr = 8;
         }else{
-            throw new RuntimeException("Vehicle Class does not exist!");
+            throw new RuntimeException("Vehicle Class not defined!");
         }
-        isOccupied = true;
-        startTime = LocalDateTime.now();
+        this.isOccupied = true;
+        this.startTime = LocalDateTime.now();
     }
 
     public double checkout(){
 
         //TODO: awaiting to complete charge calculation
         LocalDateTime endTime = LocalDateTime.now();
-        double charge = 0;
+        Duration duration = Duration.between(startTime, endTime);
+        double hours = (double) duration.toHours();
+        double charge = hours * ratePerHr;
         System.out.println(charge);
         this.vehicle = null;
         this.ratePerHr = 0;
         this.isOccupied = false;
+        this.startTime = null;
 
         return charge;
     }
