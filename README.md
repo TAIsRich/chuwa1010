@@ -42,3 +42,21 @@ then open your github, **Compare and Pull** or **New pull request**
 to **firstName_lastName/notes** from **firstName_lastName/hw1**
 ```
 You should always raise your PRs to your own firstName_lastName/notes branch, **Please don't raise your PR to main branch**
+
+--------------------
+# The largest heading
+## The second largest heading
+###### The smallest heading
+
+**This is bold text**
+*This text is italicized*
+~~This was mistaken text~~
+***All this text is important***
+**This text is _extremely_ important**
+> Text that is a quote
+
+```
+Git commands
+
+```
+
