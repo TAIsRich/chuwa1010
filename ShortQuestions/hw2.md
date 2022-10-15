@@ -98,7 +98,7 @@ an abstract class allows you to create functionality that subclasses can impleme
 An interface only allows you to define functionality, not implement it. And whereas a class can extend only one abstract class, it can take advantage of multiple interfaces.  
 
 15. design a parking lot (put the code to codingQuestions/coding1 folder, )  
-1. If you have no ability to design it, please find the solution in internet, then understand it, and re-type it.(Do NOT just copy and paste)  
+If you have no ability to design it, please find the solution in internet, then understand it, and re-type it.(Do NOT just copy and paste)  
   
 16. What are Queue interface implementations and what are the differences and when to use what?  
 Queue interface is present in java.util package and extends the Collection interface is used to hold the elements about to be precessed in FIFO order.
