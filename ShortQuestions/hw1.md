@@ -31,7 +31,7 @@ installs the package in local/remote maven repository
 12. What is plugins in maven, list some plugins.  
 plugins are the central feature of Maven that allow for the reuse of common build logic across multiple projects
 13. In chuwa1010, MavenProject directory, create a maven Module using Intellij, named it as belows:  
-1. groupID: com.chuwa.learn
-2. artifactID: java-core
+ groupID: com.chuwa.learn
+ artifactID: java-core
 14. Do Code Review: Go over the PRs in your repo, tried to leave some useful or useful comments in other
     students' PR, please don't merge it.
