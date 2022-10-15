@@ -4,6 +4,7 @@
    git branch, git checkout branchName, git checkout -b branchName, git add ., git commit -m "comments", 
    git restore ., git pull, git push, git status, git merge, git init, git log
    Change your remote's URL from HTTPS to SSH with the git remote set-url command. $ git remote set-url origin git@github.com:USERNAME/REPOSITORY.git.
+   Hard push: git push origin <your_branch_name> -f
 2. What is the basic steps to init a git repo in your local?
    step 1: create a project in a directory in local
    step 2：go into the directory and git init
