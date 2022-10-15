@@ -72,8 +72,8 @@ Super keyword is used to access methods of the immediate parent class while this
 the current class. 
 
 ###### 11. What is the Java load sequence?
-When loading a class, a class loader first "delegates" the search for the class to its parent class loader before
-attempting to find the class itself. 
+JVM loads static block is called first, then load static variables. Then constructor is loaded. Non-static variables
+are loaded after. 
 
 ###### 12.  What is Polymorphism ? And how Java implements it ?
 In programming, polymorphism refers to the same object exhibiting different forms and behaviors. 
