@@ -4,11 +4,11 @@
 
 ### 2. What is wrapper class in Java and Why we need wrapper class?
 1) Wrapper class wraps the eight primitive data types, so that we can use these primitive data types as objects.
-The primitive data types and their wrapper classes are below.
-Data type: byte, boolean, short, char, int, long, float, double
+The primitive data types and their wrapper classes are below.  
+Data type: byte, boolean, short, char, int, long, float, double  
 Wrapper class: Byte, Boolean, Short, Character, Integer, Long, Float, Double
 
-2) First, data structures in the Collection framework, such as ArrayList, can only store the objects (reference types) and cannot use the primitive types in it.
+2) First, data structures in the Collection framework, such as ArrayList, can only store the objects (reference types) and cannot use the primitive types in it.  
 Second, the objects would be easier when we modify the arguments passed into the method. And the primitive type can only be passed by value.
 
 
@@ -48,8 +48,8 @@ Access modifiers are the keywords that can be used to control the visibility of
 
 
 ### 7. What is final keyword? (Filed, Method, Class)
-final variable: When we declare a final variable, it would be constant and can not be changed.
-final method: For the final method, we can not override it.
+final variable: When we declare a final variable, it would be constant and can not be changed.  
+final method: For the final method, we can not override it.  
 final class: For the final class, we can not extend a final class, which prevent inheritance. And The final class is immutable.
 
 
