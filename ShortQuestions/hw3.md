@@ -52,3 +52,53 @@ public class Main {
     }
 }
 ```
+
+**Q8**
+
+It could be the file is open and never closed after getting exception and throwing or returning.
+
+**Q10**
+
+Java 8 new features: Optional class, default and static methods in interfaces, Functional interfaces and lambda expressions.
+
+**Q11**
+
+Creational Design Pattern: Singleton Pattern, Prototype Pattern
+
+Structural Design Pattern: Bridge Pattern, Proxy Pattern
+
+Behavioral Design Pattern: Iterator Pattern, State Pattern
+
+**Q12**
+
+It includes 5 principles in java:
+
+S: single responsibility principle
+
+O: open-closed principle.
+
+L: liskov substitution principle.
+
+I: interface segregation principle.
+
+D: dependency inversion principle.
+
+**Q13**
+
+There are three ways could achieve it.
+
+1： Create the instance variable at the time of class loading
+
+2： Synchronize the getInstance() method
+
+3： Use synchronized block inside the if loop and volatile variables
+
+**Q14**
+
+OCP: software entities should be open for extension, but closed for modification。
+
+**Q15**
+
+choose 1: It mean that if the object of type A can do something, the object of type B could also be able to
+perform the same thing.
+
