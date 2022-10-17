@@ -156,8 +156,8 @@ The entity can allow its behavior to be extended without modifying its source co
 
 ### 15. Liskov’s substitution principle states that if class B is a subtype of class A, then object of type A may be substituted with any object of type B. What does this actually mean? (from OA ) choose your answer.
 1. It mean that if the object of type A can do something, the object of type B could also be able tp perform the same thing
-2. It means that all the objects of type A could execute all the methods present in its subtype B
-**3. It means if a method is present in class A, it should also be present in class B so that the object of type B could substitute object of type A.**
+2. It means that all the objects of type A could execute all the methods present in its subtype B  
+3. **It means if a method is present in class A, it should also be present in class B so that the object of type B could substitute object of type A.**
 4. It means that for the class B to inherit class A, objects of type B and objects of type A must be same.
 
 
