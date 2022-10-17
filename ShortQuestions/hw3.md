@@ -1,4 +1,4 @@
-### 1. Practice collection
+### 1. [Practice collection](https://github.com/TAIsRich/chuwa-eij-tutorial/tree/main/02-java-core/src/main/java/com/chuwa/exercise/collection)
 
 ### 2. What is the checked exception and unchecked exception in Java, could you give one example?
 - **checked exception**: 
@@ -74,8 +74,7 @@ Optional is generally used as a return type for methods that might not always h
                 Optional obj1 = Optional.of("This is a sample text"); 
                 Optional obj2 = Optional.empty();
                 if (obj1.isPresent()) {          
-                    System.out.println
-                    ("isPresent method called on obj1 returned true");
+                    System.out.println("isPresent method called on obj1 returned true");
                 }       
             obj1.ifPresent(s -> System.out.println("ifPresent method called on obj1"));
             obj2.ifPresent(s -> System.out.println("ifPresent method called on obj2 "));
