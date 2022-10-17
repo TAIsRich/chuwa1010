@@ -1,6 +1,7 @@
 1. Write up Example code to demonstrate the three foundmental concepts of OOP. (reference Code Demorepo as example)  
 
 1. Encapsulation;  
+```
 public class Encapsulation{  
     private int a=1;  
     get A(){  
@@ -9,7 +10,9 @@ public class Encapsulation{
         this.a=a;  
     }  
 }  
+```
 2. Polymorphism;  
+```
 public class Polymorphism{  
     public class Mathma(){  
         public void add(){  
@@ -24,11 +27,14 @@ public class Polymorphism{
         addi.add();  
     }  
 }  
+```
 3. Inheritance;  
+```
 public class Inheritance(){  
 }  
 public class Subinheritance extends Inheritance(){  
 }  
+```
 
 2. What is wrapper class in Java and Why we need wrapper class?  
 The wrapper classes in java are used to convert primitive types (int, char, float, etc) into corresponding objects.  
