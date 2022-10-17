@@ -35,7 +35,7 @@ It is used because could avoid using too many null checks and specify alternate 
 
 E:
 
-'''java
+```java
 import java.util.Optional;
 
 public class Main {
@@ -51,4 +51,4 @@ public class Main {
             System.out.println("word is null");
     }
 }
-'''
+```
