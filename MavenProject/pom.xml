@@ -6,7 +6,12 @@
 
     <groupId>com.chuwa.learn</groupId>
     <artifactId>java-core</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>untitled1</module>
+        <module>creadit card notification</module>
+    </modules>
 
 
 </project>
