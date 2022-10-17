@@ -34,9 +34,19 @@ public class TreeSetExerciseTest {
 
     @Test
     public void learn_Inserting_And_Retrieving_Removing() {
+        TreeSet<Integer> set = new TreeSet<>();
+        set.add(21);
+        set.add(32);
+        set.add(44);
+        set.add(11);
+        set.add(54);
         set.add(3);
+        set.add(9);
+        set.add(41);
 
-        boolean contains1 = set.contains(1);
-
+        System.out.println("Fetching the first element in TreeSet " + set.first());
+        System.out.println("Fetching the last element in TreeSet " + set.last());
+        System.out.println("Fetching all the elements less than 40 " + set.headSet(40));
+        System.out.println("Fetching all the elements greater than 40 " + set.tailSet(40));
     }
 }

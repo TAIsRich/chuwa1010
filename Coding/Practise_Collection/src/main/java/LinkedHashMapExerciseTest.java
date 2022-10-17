@@ -72,6 +72,17 @@ public class LinkedHashMapExerciseTest {
      */
     @Test
     public void learn_Remove_Replacing_Updating() {
+        HashMap<String, Integer> stocks = new LinkedHashMap<>();
+
+        stocks.put("Apple", 123);
+        stocks.put("BMW", 54);
+        stocks.put("Google", 87);
+        stocks.put("Microsoft", 232);
+        stocks.put("Oracle", 76);
+
+        System.out.println(stocks);
+        stocks.replace("Apple", 123, 133);
+        System.out.println(stocks.get("Apple"));
 
     }
 }

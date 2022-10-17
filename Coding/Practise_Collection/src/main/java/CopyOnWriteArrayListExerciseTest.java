@@ -1,5 +1,6 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -43,11 +44,34 @@ public class CopyOnWriteArrayListExerciseTest {
 
         //Created an iterator
         Iterator<String> itr = list.iterator();
-        boolean hasNext = itr.hasNext();
-        while (hasNext) {
+
+        while (itr.hasNext()) {
             System.out.println(itr.next());
         }
-       itr.remove();
-       System.out.println(itr.next());
+
+        ArrayList<String> aList = new ArrayList<String>();
+        aList.add("Apple");
+        aList.add("Mango");
+        aList.add("Guava");
+        aList.add("Orange");
+        aList.add("Peach");
+        System.out.println("The ArrayList elements are: ");
+        for (String s: aList) {
+            System.out.println(s);
+        }
+        Iterator i = aList.iterator();
+        String str = "";
+        while (i.hasNext()) {
+            str = (String) i.next();
+            if (str.equals("Orange")) {
+                i.remove();
+                System.out.println("\nThe element Orange is removed");
+                break;
+            }
+        }
+        System.out.println("\nThe ArrayList elements are: ");
+        for (String s: aList) {
+            System.out.println(s);
+        }
     }
 }
