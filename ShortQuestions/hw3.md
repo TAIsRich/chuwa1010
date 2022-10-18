@@ -93,4 +93,4 @@ use `synchronized` to declare a block to make sure when a thread came, all other
 Open-closed means that once we want to add some new code or new feature, we can add it but we can not change any exiting function or logic
 
 ### 15
-3 is correct
+a is correct

@@ -1,34 +1,11 @@
 package com.chuwa.learn;
 
-import java.util.HashMap;
-
-public class User {
+public class User implements Notify{
     private String usernamae;
-    private HashMap<String,String> account;
-    private String seleted;
-    User(String n,String seleted,String account){
-        usernamae=n;
-        this.seleted=seleted;
-        this.account = new HashMap<String,String>();
-        this.account.put("email","");
-        this.account.put("SMS","");
-        this.account.put("WhatsAPP","");
-        this.account.replace(seleted,account);
-    }
-
-    public String getSeleted() {
-        return seleted;
-    }
-
-    public void setSeleted(String seleted,String account) {
-        this.seleted = seleted;
-        this.account.replace(this.seleted,account);
-    }
-    public void setSeleted(String seleted) {
-        this.seleted = seleted;
-    }
-    public String getSelectedAccount(){
-        return this.account.get(seleted);
+    private String account;
+    User(String n,String account) {
+        usernamae = n;
+        this.account=account;
     }
 
     public String getUsernamae() {
@@ -37,5 +14,20 @@ public class User {
 
     public void setUsernamae(String usernamae) {
         this.usernamae = usernamae;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+    public String accountType(){
+        return "";
+    }
+    @Override
+    public void notifyOne() {
+
     }
 }
