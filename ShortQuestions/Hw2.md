@@ -1,4 +1,4 @@
-## Chuwa Trining - Hw2 Xinyu Zhang
+## Chuwa Training - Hw2 Xinyu Zhang
 #### 1. Write up Example code to demonstrate the three foundmental concepts of OOP.(referenceCodeDemo repo as example)
    1. Encapsulation; 
 
