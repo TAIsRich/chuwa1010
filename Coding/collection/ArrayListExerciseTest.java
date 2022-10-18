@@ -129,5 +129,3 @@ public class ArrayListExerciseTest {
         System.out.println("Sorting in descending order with Collections.sort(list, Comparator.reverseOrder()): "+ list4);
     }
 }
-
-//https://github.com/TAIsRich/chuwa0808/blob/Flora_Zhong/notes/CodingQuestions/Coding_Exercise/src/collection/CopyOnWriteArrayListExerciseTest.java
