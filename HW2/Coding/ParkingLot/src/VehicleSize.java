@@ -1,4 +1,4 @@
-public enum CarSize {
+public enum VehicleSize {
     Small,
     Medium,
     Large
