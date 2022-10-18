@@ -26,10 +26,10 @@ wrapper class is a class that contains primitive data type. wrapper class can co
   Public—can access all, private –only can access the same class, protect—only in the same package, default –when class or method or variable not specific. It has more visibility than private, but less than protect and public.
 
 ##### 7.  What is final key word? (Filed, Method, Class) 
-final is use to restrict the user, so the other user can’t change the class, method, variable.
+Final is use to restrict the user, so the other user can’t change the class, method, variable.
 
 ##### 8.  What is static keyword? (Filed, Method, Class). When do we usually use it?  
---Static key word use for memory management, it used to share the same variable or method.
+Static key word use for memory management, it used to share the same variable or method.
 
 ##### 9.  What is the differences between overriding and overloading?
 override is happened at runtime, it must have the same method  name, parameter, type od data. Private and final can’t override, Usually use in the base and child class. Overloading is  happened at compile time, it must have different parameters, but same return type. It usually done in the same class
