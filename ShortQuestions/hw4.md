@@ -6,7 +6,7 @@ Please see *Coding\chuwa-eij-tutorial\02-java-core\src\main\java\com\chuwa\tutor
 ### 2.  Read those codes and type it one by one by yourself. the push the code to your branch.
 Please see *Coding\chuwa-eij-tutorial\02-java-core\src\main\java\com\chuwa\tutorial\t06_java8\features* for code.
 ### 3.  practice stream API at least 3 times
-Please see *Coding/hw4/* for code.
+Please see *Coding\hw4\stream-api-exercises* for code.
 ### 4.  Write the Singleton design pattern include eager load and lazy load. 
 ```
 //eager load
