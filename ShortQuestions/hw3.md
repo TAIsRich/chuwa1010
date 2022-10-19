@@ -3,6 +3,8 @@
 
      a. https://github.com/TAIsRich/chuwa-eij-tutorial/tree/main/02-java-core /src/main/java/com/chuwa/tutorial/t01_basic/generic
 
+     * Java generics allows programmers to detect illegal types at compile time. The essence of generics is that they are parameterized types, that is, the data type being manipulated is specified as a parameter.
+
      * See it in the Coding Folder
 
 2. Read those codes and type it one by one by yourself. the push the code to your branch.
