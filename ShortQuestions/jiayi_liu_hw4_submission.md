@@ -43,11 +43,13 @@
 
    https://github.com/TAIsRich/chuwa-eij-tutorial/tree/main/02-java-core/src/main/java/com/chuwa/tutorial/t06_java8
 
-   
+   please see it in my "MavenProject" folder under "Coding" folder. The code is the the directory named "tutorial" of "MavenProject"
 
 3. practice stream API at least **3** times
 
    a. https://blog.devgenius.io/15-practical-exercises-help-you-master-java-stream-api-3f9c86b1cf82
+
+   FInished
 
    
 
