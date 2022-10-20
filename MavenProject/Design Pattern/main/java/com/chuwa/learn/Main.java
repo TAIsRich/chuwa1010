@@ -7,6 +7,8 @@ public class Main {
 //        Singleton s1=Singleton.INSTANCE;
 //        Singleton s2=Singleton.INSTANCE;
         print(s1==s2);
+
+
     }
     public static <E>  void print(E e){
         System.out.println(e);
