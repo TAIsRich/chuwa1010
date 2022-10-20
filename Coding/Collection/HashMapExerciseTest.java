@@ -2,12 +2,23 @@ package Collection;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author b1go
  * @date 6/12/22 4:47 PM
  */
 public class HashMapExerciseTest {
 
+    Map<String, Integer> map = new HashMap<>();
+    public void printMap(){
+        System.out.println(map);
+    }
+
+    public <E> void print(E e){
+        System.out.println(e);
+    }
     /**
      * e.g.
      * Map<String, Integer> map = new HashMap<>();
