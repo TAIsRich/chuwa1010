@@ -110,7 +110,8 @@ Visitor Pattern
 
 
 ### How can you achieve thread-safe singleton patterns in Java ?
-看课件 熟记singleton pattern
+看课件 熟记
+singleton pattern
 There are three ways through which we can achieve thread safety.
 
 Create the instance variable at the time of class loading. Pros:
