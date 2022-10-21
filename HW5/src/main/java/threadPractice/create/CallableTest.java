@@ -1,0 +1,26 @@
+package threadPractice.create;
+
+import java.util.concurrent.Callable;
+
+public class CallableTest {
+    public static void main(String[] args) {
+        final int n = 10;
+        Callable<Integer> callable = new Callable<Integer>() {
+            @Override
+            public Integer call() throws Exception {
+                int sum = 0;
+                for (int i = 0; i <=n; i++){
+                    sum+=i;
+                }
+                return sum;
+            }
+        };
+        try {
+            Integer call =callable.call();
+            System.out.println(call);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("Done");
+    }
+}
