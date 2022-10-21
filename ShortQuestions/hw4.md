@@ -97,6 +97,8 @@
 
     [Java 8 new features](https://www.cnblogs.com/wmyskxz/p/13527583.html)
 
+    [new features](https://juejin.cn/post/6962035387787116551)
+
     Default method and static method in interface 
 
     Lambda & Functional Interface
