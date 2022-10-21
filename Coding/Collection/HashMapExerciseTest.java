@@ -40,6 +40,21 @@ public class HashMapExerciseTest {
 
     @Test
     public void learn_Inserting_And_Retrieving() {
+        map.put("one", 1);
+        map.putIfAbsent("two", 2);
+        Map<String, Integer> map2 = new HashMap<>();
+        map2.put("three", 3);
+        map.putAll(map2);
+
+        print(map.get("one"));
+        print(map.getOrDefault("two",-1));
+
+        print(map.containsKey("three"));
+        print(map.containsValue(3));
+
+        print(map.keySet());
+        print(map.values());
+        print(map.isEmpty());
 
     }
 
@@ -57,6 +72,26 @@ public class HashMapExerciseTest {
      */
     @Test
     public void learn_Remove_Replacing_Updating() {
+        map.put("one", 1);
+        map.putIfAbsent("two", 2);
+        map.put("three", 3);
 
+        map.replace("one",1,10);
+        map.replace("two", 22);
+        printMap();
+        map.replaceAll((key, value) -> value*value);
+        printMap();
+
+        print(map.compute("one", (key, value)-> value*10));
+        printMap();
+        print(map.computeIfAbsent("four", k-> 400));
+        print(map.computeIfAbsent("three", k-> 400));
+        printMap();
+        print(map.computeIfPresent("one", (key, value)-> value-=10));
+        printMap();
+
+        // different return type
+        print(map.remove("one"));
+        print(map.remove("four",4));
     }
 }
