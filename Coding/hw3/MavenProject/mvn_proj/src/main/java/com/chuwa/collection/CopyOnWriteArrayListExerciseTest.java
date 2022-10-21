@@ -1,4 +1,4 @@
-package com.chuwa.exercise.collection;
+package com.chuwa.collection;
 
 import org.junit.Test;
 

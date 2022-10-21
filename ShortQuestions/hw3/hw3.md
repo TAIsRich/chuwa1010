@@ -74,4 +74,4 @@ public class OptionalExample {
 substituted with any object of type B. What does this actually mean? (from OA ) choose your answer.
 - It mean that if the object of type A can do something, the object of type B could also be able to perform the same thing.
 16. Watch the design pattern video, and type the code, submit it to MavenProject folder.
-- Please check folder 
+- Please check folder hw3/MavenProject/mvn_proj/src/main/java/com/chuwa/pattern
