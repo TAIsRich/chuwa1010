@@ -1,7 +1,7 @@
 # Homework 3
 
 ### 1. Practice collection
-Please see see *Coding/hw3/collection* folder.
+Please see see *chuwa1010\Coding\chuwa-eij-tutorial\02-java-core\src\main\java\com\chuwa\exercise\collection* folder.
 ### 2. What is the checked exception and unchecked exception in Java, could you give one example?
 Checked exceptions are whose that are checked by a `try{}catch(){}` statement to attempt to catch exceptions in compile time. For example, we can try catching an `IOexception` by printing out that the file does not exist. Unchecked exceptions are not caught, which will throw exceptions at run time and interrupt the process. Although we can try avoiding such exceptions, but exceptions such as `NullPointerException` and `ArrayIndexOutOfBoundsException` are usually unchecked in compile time.
 ### 3. Can there be multiple finally blocks?
@@ -58,4 +58,4 @@ A class should open for extension but closed for modification, unless there is b
 ### 15. Liskov’s substitution principle states that if class B is a subtype of class A, then object of type A may be substituted with any object of type B. What does this actually mean? (from OA ) choose your answer.
 1. It means that if the object of type A can do something, the object of type B could also be able tp perform the same thing
 ### 16.  Watch the design pattern video, and type the code, submit it to MavenProject folder
-Please see see *MavenProject/design-pattern* folder.
+Please see see *Coding/hw3/design-pattern* folder.
