@@ -1,4 +1,4 @@
-# HW3 ShortAnswers
+# HW4 ShortAnswers
 1. What is generic in Java? and type the generic code by yourself.
 
      a. https://github.com/TAIsRich/chuwa-eij-tutorial/tree/main/02-java-core /src/main/java/com/chuwa/tutorial/t01_basic/generic
