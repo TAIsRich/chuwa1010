@@ -2,6 +2,7 @@ package stream_api;
 
 import common.pojo.Employee;
 import common.utils.EmployeeData;
+import javafx.scene.SubScene;
 import org.junit.Test;
 
 import java.util.*;
@@ -172,4 +173,10 @@ public class StreamApiIntermediateOperation {
         Stream<Employee> sorted = stream.sorted(Comparator.comparingInt(Employee::getAge));
         sorted.forEach(System.out::println);
     }
+
+    @Test
+    public void getAgeOver18() {
+        List<Employee> employees = EmployeeData.getEmployees();
+        employees.stream().filter(e -> e.getAge() > 18).map(Employee::getName).forEach(System.out::println);
+     }
 }
