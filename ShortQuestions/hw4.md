@@ -74,7 +74,7 @@ E:ArrayIndexOutOfBoundsException. It could happen when array's index ranges from
 
 NullPointerException example:
 
-'''java
+```java
    public class test {
     public static void main(String[] args) {
         String str = null;
@@ -83,7 +83,7 @@ NullPointerException example:
         }
     }
 }
-'''
+```
 
 **Q7**
 
