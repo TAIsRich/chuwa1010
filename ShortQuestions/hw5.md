@@ -12,7 +12,7 @@ so that each thread can get an updated value of the variable.
 
 ### 2. How to create a new thread(Please also consider Thread Pool case)?
 - Extends Thread Class
-```aidl
+```
 public class MyThread extends Thread {
     @Override
     public void run() {
@@ -25,7 +25,7 @@ t.start();
 ```
 
 - Implements Runnable
-```aidl
+```
 public class MyRunnable implements Runnable {
     @Override
     public void run() {
@@ -52,7 +52,7 @@ pool.submit(r5);
 ```
 
 - Implements Callable
-```aidl
+```
 public class MyCallable implements Callable<String> {
     @Override
     public Object call() throws Exception {
@@ -118,7 +118,7 @@ If `t` is a Thread object whose thread is currently executing, then `t.join()` w
 - Main thread call t.join()
 - Main thread will stop and wait for thread t complets its task
 - Main thread will continue after t finished its task
-```aidl
+```
 public class JoinTest {
     public static void main(String[] args) {
         Thread t = new Thread(() -> {
@@ -233,7 +233,7 @@ ThreadLocal instances are typically private static fields in classes that wish t
 
 
 ### 23. Write a code to create 2 threads, one thread print 1,3,5,7,9, another thread print 2,4,6,8,10.
-```aidl
+```
 public class Main {
     private static final Object monitor = new Object();
     private static int value = 1;
@@ -265,7 +265,7 @@ public class Main {
 
 
 ### 24. Create 3 threads, one thread output 1-10, one thread output 11-20, one thread output 21-30. threads run sequence is random.
-```aidl
+```
 public class Main {
     private static int n = 1;
 
