@@ -34,7 +34,8 @@ Callable has a return
 ### 5
 If we want to extend another class, in this case we can not extend the Thread class, but use Runnable interface can solve this conflict.
 ### 6
-Thread status are new, runnable, blocked, waiting, timed_waiting, terminated.
+Thread status are 
+new, runnable, blocked, waiting, timed_waiting, terminated.
 Java use a static inside enum class to record it and we can call getState() to get a thread's status.
 ### 7 
 `wait()` is in Object class, would release the lock. And it would let the thread be waiting until get notified.
