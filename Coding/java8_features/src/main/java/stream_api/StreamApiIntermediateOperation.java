@@ -2,6 +2,7 @@ package stream_api;
 
 import common.pojo.Employee;
 import common.utils.EmployeeData;
+
 import org.junit.Test;
 
 import java.util.*;
@@ -172,4 +173,5 @@ public class StreamApiIntermediateOperation {
         Stream<Employee> sorted = stream.sorted(Comparator.comparingInt(Employee::getAge));
         sorted.forEach(System.out::println);
     }
+
 }
