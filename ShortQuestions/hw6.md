@@ -1,10 +1,10 @@
-# Homework 6
+# Homework 6 (HW5)
 
 ## SQL
 ### 1. Create `oms_company_address` table
 ```MySQL
 CREATE TABLE oms_company_address (
-	id BIGINT PRIMARY KEY,
+    id BIGINT PRIMARY KEY,
     address_name VARCHAR(20),
     send_status INT(1),
     receive_status INT(1),
@@ -72,7 +72,7 @@ INSERT INTO oms_company_address VALUES(
 ### 7. (Optional) You can also try to create other tables that listed above
 ```MySQL
 CREATE TABLE oms_order_return_reason (
-	id BIGINT PRIMARY KEY,
+    id BIGINT PRIMARY KEY,
     name VARCHAR(100),
     sort INT,
     status INT(1),
@@ -81,4 +81,46 @@ CREATE TABLE oms_order_return_reason (
 ```
 
 ## MongoDB
-### 1.
+### 1. Create test DB
+`use test`
+### 2. Create oms_company_address collection (method: createCollection() )
+`db.createCollection('oms_company_address')`
+### 3. Insert few random entries to oms_company_address collection (method: insert() )
+```MongoDB
+db.oms_company_address.insert(
+    [
+        {id: 1, address_name: 'ABC Co Ltd', send_status: 0, receive_status: 0, name: 'Mike Wang', phone: '13012345789', province: 'Beijing', city: 'Beijing', region: 'Chaoyang', detail_address: '30 East 3rd Ring Road'},
+
+        {id: 2, address_name: 'CBA Corp', send_status: 1, receive_status: 0, name: 'Michelle Li', phone: '13087543215', province: 'Shanghai', city: 'Shanghai', region: 'Pudong', detail_address: '1233 Lujiazui Ring Road'},
+
+        {id: 3, address_name: 'XYZ LLC', send_status: 1, receive_status: 1, name: 'James Park', phone: '2121231234', province: 'New York', city: 'New York', region: 'Greenwich Villege', detail_address: '20 W 10 ST'}
+    ]
+)
+```
+### 4. Read one entry from oms_company_address collection (method: find() )
+`db.oms_company_address.find({id:1})`
+### 5. Read all entries from oms_company_address collection (method: find() )
+`db.oms_company_address.find()`
+### 6. Update one entry from oms_company_address collection (method: update() or save())
+```MongoDB
+db.oms_company_address.update(
+    {id:1},
+    {$set: {
+        phone: '666-6666-8888'
+    }}
+)
+```
+### 7. Remove one entry from oms_company_address collection (method: remove() )
+`db.oms_company_address.remove({id:1})`
+
+### 8. (Optional) You can also try to create other tables that listed above
+```MongoDB
+db.createCollection('oms_order_return_reason')
+db.oms_order_return_reason.insert(
+    [
+        {id: 1, name: 'defective', sort: '1', status: '1', create_time: 2022-10-25T10:15:23Z'}
+    ]
+)
+```
+
+##REST API
