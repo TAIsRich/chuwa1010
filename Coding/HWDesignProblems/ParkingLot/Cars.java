@@ -1,4 +1,4 @@
-package ParkingLot;
+package HWDesignProblems.ParkingLot;
 
 import java.time.LocalTime;
 

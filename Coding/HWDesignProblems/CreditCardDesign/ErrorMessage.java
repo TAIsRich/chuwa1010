@@ -1,4 +1,4 @@
-package CreditCardDesign;
+package HWDesignProblems.CreditCardDesign;
 
 public class ErrorMessage extends  IllegalArgumentException {
     private IErrorCode errorCode;

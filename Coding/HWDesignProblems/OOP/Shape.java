@@ -1,4 +1,4 @@
-package OOP.InheAndPloy;
+package HWDesignProblems.OOP;
 
 // A sample class Shape which provides a method to get the Shape's area
 

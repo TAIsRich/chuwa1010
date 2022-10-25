@@ -1,4 +1,4 @@
-package ParkingLot;
+package HWDesignProblems.ParkingLot;
 
 public class ParkingSpot {
     private int level;

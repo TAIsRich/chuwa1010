@@ -1,4 +1,4 @@
-package ParkingLot;
+package HWDesignProblems.ParkingLot;
 
 public class ParkingLot {
     private final int TotalSopt;

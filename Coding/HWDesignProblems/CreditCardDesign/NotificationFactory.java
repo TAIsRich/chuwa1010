@@ -1,4 +1,4 @@
-package CreditCardDesign;
+package HWDesignProblems.CreditCardDesign;
 
 public class NotificationFactory {
     public Notification createNotification(String Method) throws ErrorMessage{

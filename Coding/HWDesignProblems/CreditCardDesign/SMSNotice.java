@@ -1,4 +1,4 @@
-package CreditCardDesign;
+package HWDesignProblems.CreditCardDesign;
 
 public class SMSNotice implements Notification {
     @Override
