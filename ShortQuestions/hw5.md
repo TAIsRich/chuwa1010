@@ -86,9 +86,9 @@ A ThreadLocal can creat a temporary variable that only can be accessed by a spec
 ### Read those interview questions and pick some important questions to this homework.
 - ***What's the difference between thread and process?***
 
-      process - a program in execution, can contain multiple threads.
+process - a program in execution, can contain multiple threads.
 
-      thread - smallest units of the particular process, has the ability to execute different parts of the program at the same time.  
+thread - smallest units of the particular process, has the ability to execute different parts of the program at the same time.  
 
 - ***What's the difference between User thread and Daemon thread?***
 
