@@ -1,3 +1,5 @@
+## Database
+
 ### MySQL
 
 1. ```mysql
@@ -78,4 +80,198 @@
    db.oms_company_address.remove({name: "e"})
    ```
 
-### REST API
+## REST API
+
+### Postman
+
+- GET 1: GET https://postman-echo.com/get
+
+- GET 2: GET https://www.boredapi.com/api/activity
+
+- GET 3: GET https://api.zippopotam.us/us/90210
+
+- GET 4: GET https://api.genderize.io/?name=kate
+
+- GET 5: GET https://datausa.io/api/data?drilldowns=Nation&measures=Population
+
+- POST 1: POST https://reqres.in/api/users
+
+  - Request
+
+    ```json
+    {
+        "name": "aaa",
+        "job": "bbb"
+    }
+    ```
+
+  - Response
+
+    ```json
+    {
+        "name": "aaa",
+        "job": "bbb",
+        "id": "29",
+        "createdAt": "2022-10-26T20:37:16.787Z"
+    }
+    ```
+
+- POST 2: POST https://reqres.in/api/register
+
+  - Request
+
+    ```json
+    {
+        "email": "a@b.c",
+        "password": "aaa"
+    }
+    ```
+
+  - Response
+
+    ```json
+    {
+        "error": "Note: Only defined users succeed registration"
+    }
+    ```
+  
+- POST 3: POST https://reqres.in/api/register
+
+  - Request
+
+    ```json
+    {
+        "email": "a@b.c"
+    }
+    ```
+    
+  - Response
+  
+    ```json
+    {
+        "error": "Missing password"
+    }
+    ```
+  
+- POST 4: POST https://reqres.in/api/login
+
+  - Request
+
+    ```json
+    {
+        "email": "eve.holt@reqres.in",
+        "password": "cityslicka"
+    }
+    ```
+
+  - Response
+
+    ```json
+    {
+        "token": "QpwL5tke4Pnpja7X4"
+    }
+    ```
+  
+- POST 5: POST https://reqres.in/api/login
+
+  - Request
+
+    ```json
+    {
+        "password": "aaa"
+    }
+    ```
+    
+  - Response
+  
+    ```json
+    {
+        "error": "Missing email or username"
+    }
+    ```
+  
+- PUT 1: PUT https://reqres.in/api/users/3
+
+  - Request
+
+    ```json
+    {
+        "name": "abc"
+    }
+    ```
+    
+  - Response
+
+    ```json
+    {
+        "name": "abc",
+        "updatedAt": "2022-10-26T20:41:10.148Z"
+    }
+    ```
+
+- PUT 2: PUT https://jsonplaceholder.typicode.com/todos/5
+
+  - Request
+
+    ```json
+    {
+        "title": "aaa",
+        "completed": false
+    }
+    ```
+    
+  - Response
+
+    ```json
+    {
+        "title": "aaa",
+        "completed": false,
+        "id": 5
+    }
+    ```
+
+- PUT 3: PUT https://jsonplaceholder.typicode.com/users/10
+
+  - Request
+
+    ```json
+    {
+        "phone": "123-456-7890",
+        "website": "a.b"
+    }
+    ```
+    
+  - Response
+
+    ```json
+    {
+        "phone": "123-456-7890",
+        "website": "a.b",
+        "id": 10
+    }
+    ```
+
+- DELETE 1: DELETE https://reqres.in/api/users/5
+
+- DELETE 2: DELETE https://jsonplaceholder.typicode.com/posts/2
+
+
+### API Design
+
+- Blog
+  - Get user post: GET https://www.xxx.com/users/:user_id/posts/:post_id
+  - Get all posts: GET https://www.xxx.com/users/:user_id/posts
+  - Post a new post: POST https://www.xxx.com/users/:user_id/posts/:post_id
+  - Update post title: PUT https://www.xxx.com/users/:user_id/posts/:post_id/title
+  - Update post body: PUT https://www.xxx.com/users/:user_id/posts/:post_id/body
+  - Remove a post: DELETE https://www.xxx.com/users/:user_id/posts/:post_id
+
+1. https://www.xxx.com/users/:user_id/payments
+
+2. https://www.xxx.com/users/:user_id/orders?from=101022&to=102422
+
+3. https://www.xxx.com/users/:user_id/addresses
+
+4. https://www.xxx.com/users/:user_id/payments?default=1
+
+   https://www.xxx.com/users/:user_id/addresses?default=1
