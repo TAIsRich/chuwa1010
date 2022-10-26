@@ -1,4 +1,4 @@
-package OOP;
+package HWDesignProblems.OOP;
 
 /**
  * @author b1go
