@@ -5,9 +5,9 @@ import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
+
 public class CreateStream {
     @Test
-    //create stream by .stream()
     public void create() {
         List<Integer> col = Arrays.asList(1, 2, 3, 4, 5);
         Stream<Integer> stream = col.stream();
@@ -16,7 +16,6 @@ public class CreateStream {
     }
 
     @Test
-    //create stream by Arrays.stream(arr)
     public void create_arrays() {
         int[] arr = new int[]{1, 2, 3, 4, 5};
         IntStream stream = Arrays.stream(arr);
@@ -24,18 +23,14 @@ public class CreateStream {
     }
 
     @Test
-    //create stream by Stream.of(...)
+
     public void create_of() {
         Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5);
     }
 
     @Test
     public void testIterate() {
-        /*
-         * example of iterate first 10 even numbers
-         * seed : 0, means initial value is 0
-         * limit(10) means that it only produce 10 elements then stop.
-         */
+
         Stream.iterate(0, i -> i + 2).limit(10).forEach(System.out::println);
     }
 

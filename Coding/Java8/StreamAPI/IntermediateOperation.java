@@ -39,7 +39,7 @@ public class IntermediateOperation {
 
     @Test
     public void testMap() {
-        // map(Function f)
+
         List<Integer> col = Arrays.asList(1, 2, 3, 4, 5);
         col.stream().map(integer -> integer * 2).forEach(System.out::println);
 
@@ -58,7 +58,7 @@ public class IntermediateOperation {
 
         System.out.println("**** 使用flatMap *****");
 
-        // Stream<Stream<Character>  --> Stream<Character>
+
         Stream<Character> characterStream = list.stream().flatMap(IntermediateOperation::fromStringToStream);
         characterStream.forEach(System.out::println);
     }
