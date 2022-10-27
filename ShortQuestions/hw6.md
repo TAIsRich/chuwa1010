@@ -124,3 +124,411 @@ db.oms_order_return_reason.insert(
 ```
 
 ##REST API
+
+### Postman
+
+- 5 GET APIs with different response type
+1. GET https://ghibliapi.herokuapp.com/vehicles
+   Response status: 200 OK
+```
+     [
+  {
+    "id": "4e09b023-f650-4747-9ab9-eacf14540cfb",
+    "name": "Air Destroyer Goliath",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship",
+    "length": "1,000",
+    "pilot": "https://ghibliapi.herokuapp.com/people/40c005ce-3725-4f15-8409-3e1b1b14b583",
+    "films": [
+      "https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"
+    ],
+    "url": "https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb"
+  },
+  {
+    "id": "d8f893b5-1dd9-41a1-9918-0099c1aa2de8",
+    "name": "Red Wing",
+    "description": "An experimental aircraft captured by Porco. Named Savoia S.21",
+    "vehicle_class": "Airplane",
+    "length": "20",
+    "pilot": "https://ghibliapi.herokuapp.com/people/6523068d-f5a9-4150-bf5b-76abe6fb42c3",
+    "films": [
+      "https://ghibliapi.herokuapp.com/films/ebbb6b7c-945c-41ee-a792-de0e43191bd8"
+    ],
+    "url": "https://ghibliapi.herokuapp.com/vehicles/d8f893b5-1dd9-41a1-9918-0099c1aa2de8"
+  },
+  {
+    "id": "923d70c9-8f15-4972-ad53-0128b261d628",
+    "name": "Sosuke's Boat",
+    "description": "A toy boat where Sosuke plays",
+    "vehicle_class": "Boat",
+    "length": "10",
+    "pilot": "https://ghibliapi.herokuapp.com/people/a10f64f3-e0b6-4a94-bf30-87ad8bc51607",
+    "films": [
+      "https://ghibliapi.herokuapp.com/films/758bf02e-3122-46e0-884e-67cf83df1786"
+    ],
+    "url": "https://ghibliapi.herokuapp.com/vehicles/923d70c9-8f15-4972-ad53-0128b261d628"
+  }
+]
+```
+2. GET https://ghibliapi.herokuapp.com/vehicles?id=d8f893b5-1dd9-41a1-9918-0099c1aa2de8
+   Response status: 200 OK
+```
+[
+  {
+    "id": "d8f893b5-1dd9-41a1-9918-0099c1aa2de8",
+    "name": "Red Wing",
+    "description": "An experimental aircraft captured by Porco. Named Savoia S.21",
+    "vehicle_class": "Airplane",
+    "length": "20",
+    "pilot": "https://ghibliapi.herokuapp.com/people/6523068d-f5a9-4150-bf5b-76abe6fb42c3",
+    "films": [
+      "https://ghibliapi.herokuapp.com/films/ebbb6b7c-945c-41ee-a792-de0e43191bd8"
+    ],
+    "url": "https://ghibliapi.herokuapp.com/vehicles/d8f893b5-1dd9-41a1-9918-0099c1aa2de8"
+  }
+]
+```
+3. GET https://ghibliapi.herokuapp.com/vehicles/id=d8f893b5-1dd9-41a1-9918-0099c1aa2de8
+   Response status: 404 Not Found
+```{}```
+4. GET https://ghibliapi.herokuapp.com/vehicles?name=Air Destroyer Goliath
+   Response status: 200 OK
+```
+[
+    {
+        "id": "4e09b023-f650-4747-9ab9-eacf14540cfb",
+        "name": "Air Destroyer Goliath",
+        "description": "A military airship utilized by the government to access Laputa",
+        "vehicle_class": "Airship",
+        "length": "1,000",
+        "pilot": "https://ghibliapi.herokuapp.com/people/40c005ce-3725-4f15-8409-3e1b1b14b583",
+        "films": [
+            "https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"
+        ],
+        "url": "https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb"
+    }
+]
+```
+5. GET https://ghibliapi.herokuapp.com/vehicles?name=Airplane
+   Response status: 200 OK
+```[]```
+
+- 5 Post API with json request body, please also paste the response here
+1. POST https://ghibliapi.herokuapp.com/vehicles
+Request Body:
+```
+{
+    "name": "Air Destroyer Goliath ver 1"
+}
+```
+Response Status: 201 Created
+Response:
+```
+{
+    "name": "Air Destroyer Goliath ver 1",
+    "id": "36e4fee3-c0c0-4da5-871d-ede777ca3e46"
+}
+```
+2. POST https://ghibliapi.herokuapp.com/vehicles
+Request Body:
+```
+{
+    "id": "4e09b023-f650-4747-9ab9-eacf14540cfa",
+    "name": "Fake Air Destroyer Goliath",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship",
+    "length": "1,000",
+    "pilot": "https://ghibliapi.herokuapp.com/people/40c005ce-3725-4f15-8409-3e1b1b14b583",
+    "films": [
+        "https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"
+    ],
+    "url": "https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfa"
+}
+```
+Response Status: 201 Created
+Response:
+```
+{
+    "id": "4e09b023-f650-4747-9ab9-eacf14540cfa",
+    "name": "Fake Air Destroyer Goliath",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship",
+    "length": "1,000",
+    "pilot": "https://ghibliapi.herokuapp.com/people/40c005ce-3725-4f15-8409-3e1b1b14b583",
+    "films": [
+        "https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"
+    ],
+    "url": "https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfa"
+}
+```
+3. Post https://ghibliapi.herokuapp.com/vehicles
+Request Body:
+```
+{
+    "id": "001a",
+    "name": "Air Destroyer Goliath",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship"
+}
+```
+Response Status: 201 Created
+Response:
+```
+{
+    "id": "001a",
+    "name": "Air Destroyer Goliath",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship"
+}
+```
+4. Post https://ghibliapi.herokuapp.com/vehicles
+Request Body:
+```
+{
+    "id": "001aaaaaaa",
+    "name": "Air Destroyer Goliath",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship",
+    "test type": "test"
+}
+```
+Response Status: 201 Created
+Response:
+```
+{
+    "id": "001aaaaaaa",
+    "name": "Air Destroyer Goliath",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship",
+    "test type": "test"
+}
+```
+5. Post https://ghibliapi.herokuapp.com/vehicles/id=001a
+Request Body:
+```
+{
+    "id": "001aaaaaaa",
+    "name": "Air Destroyer Goliath",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship",
+    "test type": "test"
+}
+```
+Response Status: 404 Not Found
+Response:
+`{}`
+
+- 3 PUT API with json request body, please also paste the response here
+1. PUT 
+Request Body: https://ghibliapi.herokuapp.com/vehicles
+```
+{
+    "id": "4e09b023-f650-4747-9ab9-eacf14540cfb",
+    "name": "Air Destroyer Goliath changed",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship",
+    "length": "1,000",
+    "pilot": "https://ghibliapi.herokuapp.com/people/40c005ce-3725-4f15-8409-3e1b1b14b583",
+    "films": [
+      "https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"
+    ],
+    "url": "https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb"
+}
+```
+Response Status: 404 Not Found
+Response:
+`{}`
+2. PUT https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb
+Request Body:
+```
+{
+    "id": "4e09b023-f650-4747-9ab9-eacf14540cfb",
+    "name": "Air Destroyer Goliath changed",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship changed",
+    "length": "1,000",
+    "pilot": "https://ghibliapi.herokuapp.com/people/40c005ce-3725-4f15-8409-3e1b1b14b583",
+    "films": [
+      "https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"
+    ],
+    "url": "https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb"
+}
+```
+Response Status: 200 OK
+Response:
+```
+{
+    "id": "4e09b023-f650-4747-9ab9-eacf14540cfb",
+    "name": "Air Destroyer Goliath changed",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship changed",
+    "length": "1,000",
+    "pilot": "https://ghibliapi.herokuapp.com/people/40c005ce-3725-4f15-8409-3e1b1b14b583",
+    "films": [
+        "https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"
+    ],
+    "url": "https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb"
+}
+```
+
+2. PUT https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb
+Request Body:
+```
+{
+    "id": "4e09b023-f650-4747-9ab9-eacf14540cfb-changed",
+    "name": "Air Destroyer Goliath changed",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship changed",
+    "length": "1,000",
+    "pilot": "https://ghibliapi.herokuapp.com/people/40c005ce-3725-4f15-8409-3e1b1b14b583",
+    "films": [
+      "https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"
+    ],
+    "url": "https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb"
+}
+```
+Response Status: 200 OK
+Response:
+```
+{
+    "id": "4e09b023-f650-4747-9ab9-eacf14540cfb",
+    "name": "Air Destroyer Goliath changed",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship changed",
+    "length": "1,000",
+    "pilot": "https://ghibliapi.herokuapp.com/people/40c005ce-3725-4f15-8409-3e1b1b14b583",
+    "films": [
+        "https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"
+    ],
+    "url": "https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb"
+}
+```
+3. PUT https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb
+Request Body:
+```
+{
+    "id": "4e09b023-f650-4747-9ab9-eacf14540cfa",
+    "name": "Air Destroyer Goliath id changed",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship changed",
+    "length": "1,000",
+    "pilot": "https://ghibliapi.herokuapp.com/people/40c005ce-3725-4f15-8409-3e1b1b14b583",
+    "films": [
+      "https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"
+    ],
+    "url": "https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb"
+}
+```
+Response Status: 200 OK (but did not change id)
+```
+{
+    "id": "4e09b023-f650-4747-9ab9-eacf14540cfb",
+    "name": "Air Destroyer Goliath id changed",
+    "description": "A military airship utilized by the government to access Laputa",
+    "vehicle_class": "Airship changed",
+    "length": "1,000",
+    "pilot": "https://ghibliapi.herokuapp.com/people/40c005ce-3725-4f15-8409-3e1b1b14b583",
+    "films": [
+        "https://ghibliapi.herokuapp.com/films/2baf70d1-42bb-4437-b551-e5fed5a87abe"
+    ],
+    "url": "https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb"
+}
+```
+- 2 DELETE API
+1. DELETE https://ghibliapi.herokuapp.com/vehicles/4e09b023-f650-4747-9ab9-eacf14540cfb
+Response Status: 200 OK
+Response:
+`{}`
+2. DELETE https://ghibliapi.herokuapp.com/vehicles?name=Red Wing
+Response Status: 404 Not Found
+Reponse:
+`{}`
+- Each example with 404, 401,500 and any http status codes you know
+  - 100 Continue
+  - 101 Switching Protocols
+  - 102 Processing
+  - 103 Early Hints
+  - 200 OK
+  - 201 Created
+  - 202 Accepted
+  - 203 Non-Authoritative Information
+  - 204 No Content
+  - 205 Reset Content
+  - 206 Partial Content
+  - 207 Multi-Status
+  - 208 Already Reported
+  - 226 IM Used
+  - 300 Multiple Choices
+  - 301 Moved Permanently
+  - 302 Found
+  - 303 See Other
+  - 304 Not Modified
+  - 305 Use Proxy
+  - 306 Switch Proxy
+  - 307 Temporary Redirect
+  - 308 Permanent Redirect
+  - 400 Bad Request
+  - 401 Unauthorised
+  - 402 Payment Required
+  - 403 Forbidden
+  - 404 Not Found
+  - 405 Method Not Allowed
+  - 406 Not Acceptable
+  - 407 Proxy Authentication Required
+  - 408 Request Timeout
+  - 409 Conflict
+  - 410 Gone
+  - 411 Length Required
+  - 412 Precondition Failed
+  - 413 Payload Too Large
+  - 414 URI Too Long
+  - 415 Unsupported Media Type
+  - 416 Range Not Satisfiable
+  - 417 Expectation Failed
+  - **418 I'm a teapot**
+  - 421 Misdirected Request
+  - 422 Unprocessable Entity
+  - 423 Locked
+  - 424 Failed Dependency
+  - 425 Too Early
+  - 426 Upgrade Required
+  - 428 Precondition Required
+  - 429 Too Many Requests
+  - 431 Request Header Fields Too Large
+  - 451 Unavailable For Legal Reasons
+  - 500 Internal Server Error
+  - 501 Not Implemented
+  - 502 Bad Gateway
+  - 503 Service Unavailable
+  - 504 Gateway Timeout
+  - 505 HTTP Version Not Supported
+  - 506 Variant Also Negotiates
+  - 507 Insufficient Storage
+  - 508 Loop Detected
+  - 510 Not Extended
+  - 511 Network Authentication Required
+
+### API Design
+1.  Find 2 collection of APIs example. ie. Twitter, Paypal, Youtube etc.
+    1.  Paypal: https://www.postman.com/paypal/workspace/paypal-public-api-workspace/collection/
+    2.  Youtube: https://developers.google.com/youtube/v3/docs
+2.  Design a collection of APIs for a Blog Website, please specify GET POST PUT DELETE
+    1.  Endpoint: GET https://www.blog.com/blogger/v1
+    2.  Read all blogs: GET https://www.blog.com/blogger/v1/blogs
+    3.  Read 1 blog's posts: GET https://www.blog.com/blogger/v1/blogs/blog_id/posts
+    4.  Read 1 blog's 1 post: GET https://www.blog.com/blogger/v1/blogs/blog_id/posts/post_id
+    5.  Post to a blog: POST https://www.blog.com/blogger/v1/blogs/blog_id/posts/post_id
+    6.  Update a post: PUT https://www.blog.com/blogger/v1/blogs/blog_id/posts/post_id
+    7.  Delete a post: DELETE https://www.blog.com/blogger/v1/blogs/blog_id/posts/post_id
+
+#### Design APIs for the following features
+3.  find the customer's payments, like credit card 1, credit card 2, paypal, Apple Pay.
+    GET https://www.store.com/payments/v1/u1/stored?method=paypal
+4.  Find the customer's history orders from 10/10/2022 to 10/24/2022
+    GET https://www.store.com/orders/v1/u1/past?from=2022-10-10&to=2022-10-24
+5.  find the customer's delievery  addresses
+    GET https://www.store.com/profile/v1/u1/address
+6.  If I also want to get customer's default payment and default delievery address, what kind of the API (URL) 
+should be?
+    GET https://www.store.com/payments/v1/u1/stored?default=true
+    GET https://www.store.com/profile/v1/u1/address?default=true
