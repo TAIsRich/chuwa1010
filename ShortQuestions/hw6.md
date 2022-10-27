@@ -105,3 +105,33 @@
 
    
 
+### API Design
+
+1. Find 2 collection of APIs example. ie. Twitter, Paypal, Youtube etc.  -- 命名规范
+
+   * **Twitter** See in the [Reference](https://www.postman.com/twitter/workspace/twitter-s-public-workspace/overview)
+   * **PayPal:** See in the [Reference](https://www.postman.com/paypal/workspace/paypal-public-api-workspace/collection/19024122-92a85d0e-51e7-47da-9f83-c45dcb1cdf24?ctx=documentation)
+
+2. Design a collection of APIs for a Blog Website, please specify GET POST PUT DELETE
+
+   1. Design APIs for the following features (思考：path variable 怎么用？有sub resources, 哪些地方该用复数)
+   2. find the customer's payments, like credit card 1, credit card 2, paypal, Apple Pay.
+   3. Find the customer's history orders from 10/10/2022 to 10/24/2022
+   4. Find the customer's delievery  addresses
+
+   ```sql
+   GET /api/v1/custermers/{customer_id}/payments
+   GET /api/v1/custermers/{customer_id}/addresses
+   GET /api/v1/custermers/{customer_id}/orders?startDate = "10/10/2022"&endDate = "10/24/2022"
+   ```
+
+3. If I also want to get customer's default payment and default delievery address, what kind of the API (URL) 
+   should be? 
+
+   ```sql
+   GET /api/v1/custermers/{customer_id}/payments/default
+   GET /api/v1/custermers/{customer_id}/addresses/default
+   ```
+
+   
+
