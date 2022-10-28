@@ -86,9 +86,15 @@ CREATE TABLE oms_order_return_reason (
 ```
 ## MongoDB Exercise
 ### 1. `Create` test DB
-`use test`
+```
+use test
+```
+
 ### 2. `Create` oms_company_address collection (method: createCollection() )
-`db.createCollection('oms_company_address')`
+```
+db.createCollection('oms_company_address')
+```
+
 ### 3. Insert few random entries to oms_company_address collection (method: insert() )
 ```
 db.oms_company_address.insertOne( {id: 1, address_name: '29th st', send_status: 1, receive_status: 1, name: 'Amy A', phone: '4152897354', province: 'California', city: 'San Jose', region: 'Santa Clara', detail_address: '888 29th st'} )
