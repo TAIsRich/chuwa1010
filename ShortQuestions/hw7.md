@@ -66,22 +66,22 @@
 
 7. **Create a Project, name it with mongo-blog, write a POST API for mongo-blog, change database to MongoDB.**
 
-   ![image-20221028180445007](C:\Users\derri\AppData\Roaming\Typora\typora-user-images\image-20221028180445007.png)
+   ![image-20221028180445007](https://raw.githubusercontent.com/KeMa-444/gitexample/main/screenshots/image-20221028180445007.png)
 
 8. **In your redbook application, write the code for RUD APIs.**
 
    GetAll:
 
-   ![image-20221028180558795](C:\Users\derri\AppData\Roaming\Typora\typora-user-images\image-20221028180558795.png)
+   ![image-20221028180558795](https://raw.githubusercontent.com/KeMa-444/gitexample/main/screenshots/image-20221028180558795.png)
 
    GetByID:
 
-   ![image-20221028180626087](C:\Users\derri\AppData\Roaming\Typora\typora-user-images\image-20221028180626087.png)
+   ![image-20221028180626087](https://raw.githubusercontent.com/KeMa-444/gitexample/main/screenshots/image-20221028180626087.png)
 
    Update:
 
-   ![image-20221028180710580](C:\Users\derri\AppData\Roaming\Typora\typora-user-images\image-20221028180710580.png)
+   ![image-20221028180710580](https://raw.githubusercontent.com/KeMa-444/gitexample/main/screenshots/image-20221028180710580.png)
 
    Delete:
 
-   ![image-20221028180728675](C:\Users\derri\AppData\Roaming\Typora\typora-user-images\image-20221028180728675.png)
+   ![image-20221028180728675](https://raw.githubusercontent.com/KeMa-444/gitexample/main/screenshots/image-20221028180728675.png)
