@@ -9,7 +9,8 @@ The data type of the name column in the table defined earlier is varchar(255) an
 The predefined length of the studentName column is 50, cannot be null, can have duplicates
 
 ###### 3. What is the default column names of the table in database for @Column ?
-default
+first_name
+operating_system
 
 ###### 4. What are the layers in springboot application? what is the role of each layer?
 - Presentation Layer – Authentication & Json Translation
