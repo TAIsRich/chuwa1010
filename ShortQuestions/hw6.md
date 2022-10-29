@@ -1,4 +1,5 @@
 ## REST API (Postman)
+
 ### 5 GET APIs with different response type
 -GET https://ghibliapi.herokuapp.com/locations **200 ok**
 -GET https://ghibliapi.herokuapp.com/locations/sb **404 Not Found**
@@ -165,3 +166,60 @@ Data looks like
   }
 }
 ```
+
+## DataBase
+
+### Create oms_company_address table
+create database oms;
+use oms;
+create table oms_company_address
+(id bigint primary key,
+address_name varchar(200),
+send_status int(1),
+receive_status int(1),
+name varchar(64),
+phone varchar(64),
+province varchar(64),
+city varchar(64),
+region varchar(64),
+detail_address varchar(200));
+
+###Insert some random data to oms_company_address table
+insert into oms_company_address values
+(100, "foshan", 1, 1, "abc", "1", "A", "a", "1 ", "100"),
+(10002, "guangzhou", 1, 0, "bbc", "2", "B", "b", "2 ", "200"),
+(100003, "shenzhen", 0, 0, "cbc", "3", "C", "c", "3", "300"),
+(100000004, "xianggang", 1, 0, "dbc", "4", "D", "d", "4", "400"),
+(1000000005, "aomen", 1, 1, "ebc", "5", "E", "e", "5", "500");
+
+###Write a SQL query to fetch all data from oms_company_address `table
+select * from oms_company_address;
+
+###Write a SQL query to fetch top 3 records from oms_company_address table
+select * from oms_company_address limit 3;
+
+###Update oms_company_address table to set all phone to 666-6666-8888
+update oms_company_address
+set phone = "666-6666-8888"
+where id != 0;
+
+###  Delete one entry from oms_company_address table
+delete from oms.oms_company_address 
+where id = 100;
+
+### Create test DB
+use test
+### Create oms_company_address collection (method: createCollection() )
+db.createCollection("oms_company_address")
+### some CRUD
+1. Insert few random entries to oms_company_address collection (method: insert() )
+2. Read one entry from oms_company_address collection (method: find() )
+3. Read all entries from oms_company_address collection (method: find() )
+4. Update one entry from oms_company_address collection (method: update() or save() )
+5. Remove one entry from oms_company_address collection (method: remove() )
+
+- db.oms_company_address.insert({.....})
+- db.oms_company_address.find({_id: 100})
+- db.oms_company_address.find()
+- db.oms_company_address.findOneAndUpdate({_id: 100},{$set:{phone: Long("888")}})
+- db.oms_company_address.remove({_id: 100})
