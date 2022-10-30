@@ -47,7 +47,7 @@ public class PostServiceImpl implements PostService {
         List<Post> posts = postRepository.findAll();
         List<PostDto> postDtos = posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
 
-        return null;
+        return postDtos;
     }
 
 
