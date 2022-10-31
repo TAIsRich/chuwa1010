@@ -78,7 +78,6 @@ db.oms_company_address.insertMany([
 	{id: 1, address_name: 'A street', send_status: 1, receive_status: 1, name: 'S Choi', phone : '12456789', province : 'Zhejiang', city : 'Hangzhou', region : 'C', detail_address: 'Apt 668'},
 	{id: 2, address_name: 'B street', send_status: 0, receive_status: 0, name: 'J Yoon', phone : '1678099', province : 'Zhejiang', city : 'Wenzhou', region : 'C', detail_address: 'Apt 677'},
 	{id: 3, address_name: 'C street', send_status: 1, receive_status: 0, name: 'J Hong', phone : '77789', province : 'Xinjiang', city : 'A', region : 'P', detail_address: 'Apt 17'}])
-
 ```
 
 4.

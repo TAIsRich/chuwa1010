@@ -1,0 +1,13 @@
+package com.chuwa.redbookRud;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class RedbookRudApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(RedbookRudApplication.class, args);
+	}
+
+}
