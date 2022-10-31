@@ -324,3 +324,138 @@ test>
 
 ```
 
+## **REST API**
+
+### Postman Exercise
+
+https://ghibliapi.herokuapp.com/locations
+
+https://reqres.in/
+
+5 GET APIs with different response type
+
+5 Post API with json request body, please also paste the response here 
+
+3 PUT API with json request body, please also paste the response here 
+
+2 DELETE API
+
+Each example with 404, 401,500 and any http status codes you know
+
+```shell
+100 Continue
+
+101 Switching Protocols
+
+102 Processing
+
+200 OK
+
+201 Created
+
+202 Accepted
+
+203 Non-Authoritative Information
+
+204 No Content
+
+205 Reset Content
+
+206 Partial Content
+
+207 Multi-Status
+
+208 Already Reported
+
+226 IM Used
+
+300 Multiple Choices
+
+301 Moved Permanently
+
+302 Found
+
+303 Check Other
+
+304 Not Modified
+
+305 Use Proxy
+
+306 Switch Proxy
+
+307 Temporary Redirect
+
+308 Permanent Redirect
+
+400 Bad Request
+
+401 Unauthorised
+
+402 Payment Required
+
+403 Forbidden
+
+404 Not Found
+
+405 Method Not Allowed
+
+406 Not Acceptable
+
+407 Proxy Authentication Required
+
+408 Request Timeout
+
+409 Conflict
+
+500 Internal Server Error
+
+501 Not Implemented
+
+502 Bad Gateway
+
+503 Service Unavailable
+
+504 Gateway Timeout
+```
+
+Environment 选择完成后记得打勾，才能用{{localhost}}之类的！！
+
+
+
+**API Design**
+
+1. Find 2 collection of APIs example. ie. Twitter, Paypal, Youtube etc. -- 命名规范
+
+   https://developers.google.com/youtube/v3/docs
+
+   https://developer.twitter.com/en/docs/twitter-api
+
+   Or from postman public
+
+   https://www.postman.com/twitter/workspace/twitter-s-public-workspace/overview
+
+2. Design a collection of APIs for a Blog Website, please specify GET POST PUT DELETE
+
+   - retrieve endpoint: GET [https://www.Blog.com/blogger/v1](https://www.blog.com/blogger/v1)
+   - retrieve posts from a blog: GET [https://www.Blog.com/blogger/v1/blogs/blog_id/posts](https://www.blog.com/blogger/v1/blogs/blog_id/posts)
+   - retrieve a specific post from a blog: GET [https://www.Blog.com/blogger/v1/blogs/blog_id/posts/post_id](https://www.blog.com/blogger/v1/blogs/blog_id/posts/post_id)
+   - add a post to a blog: POST [https://www.Blog.com/blogger/v1/blogs/blog_id/posts/post_id](https://www.blog.com/blogger/v1/blogs/blog_id/posts/post_id)
+   - update a post from a blog: PUT [https://www.Blog.com/blogger/v1/blogs/blog_id/posts/post_id](https://www.blog.com/blogger/v1/blogs/blog_id/posts/post_id)
+   - delete a post from a blog: DELETE [https://www.Blog.com/blogger/v1/blogs/blog_id/posts/post_id](https://www.blog.com/blogger/v1/blogs/blog_id/posts/post_id)
+
+Design APIs for the following features (思考:path variable 怎么用?有sub resources, 哪些地方该用复数)
+
+1. find the customer's payments, like credit card 1, credit card 2, paypal, ApplePay.
+2. Find the customer's history orders from 10/10/2022 to 10/24/2022
+3. find the customer's delievery addresses
+4. If I also want to get customer's default payment and default delievery address, what kind of the API(URL) should be?
+
+1. https://www.CusPay.com/users/:user-id/payments
+
+2. https://www.CusPay.com/users/:user-id/orders-his?start=101022&end=102422
+
+3. https://www.CusPay.com/users/:user-id/deliver-addresses
+
+4. https://www.CusPay.com/users/:user-id/payments?default=1
+
+   https://www.CusPay.com/users/:user-id/addresses?default=1
