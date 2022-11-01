@@ -1,7 +1,9 @@
 package com.example.redbook.controller;
 
 import com.example.redbook.payload.PostDto;
+import com.example.redbook.payload.PostResponse;
 import com.example.redbook.service.PostService;
+import com.example.redbook.util.AppConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping("/api/vi/posts")
+@RequestMapping("/api/v1/posts")
 public class PostController {
     @Autowired
     private PostService postService;
@@ -21,9 +23,14 @@ public class PostController {
         return new ResponseEntity<>(postResponse, HttpStatus.CREATED);
     }
 
-    @GetMapping
-    public List<PostDto> getAllPosts() {
-        return postService.getAllPost();
+    @GetMapping()
+    public PostResponse getAllPosts(
+            @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER, required = false) int pageNo,
+            @RequestParam(value = "pageSize", defaultValue = AppConstants.DEFAULT_PAGE_SIZE, required = false) int pageSize,
+            @RequestParam(value = "sortBy", defaultValue = AppConstants.DEFAULT_SORT_BY, required = false) String sortBy,
+            @RequestParam(value = "sortDir", defaultValue = AppConstants.DEFAULT_SORT_DIR, required = false) String sortDir
+    ) {
+        return postService.getAllPost(pageNo, pageSize, sortBy, sortDir);
     }
 
     @GetMapping("/{id}")
