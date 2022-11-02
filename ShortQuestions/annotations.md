@@ -86,3 +86,9 @@ The @RestController annotation is itself annotated with the @ResponseBody annota
 
 @RequestAttribute: It binds a method parameter to request attribute. It provides convenient access to the request attributes from a controller method. 
 With the help of @RequestAttribute annotation, we can access objects that are populated on the server-side.
+
+@JsonProperty: customize the property name in Json.
+
+@JsonPropertyOrder: customize the order of properties in Json file.
+
+@ManytoOne: the relationship between two tables is many to one.
