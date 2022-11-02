@@ -19,6 +19,7 @@
 - `@DeleteMapping` defines a DELETE method with path variable
 - `@PathVariable` maps field names in path variable with a Java field
 - `@RequestBody` defines a request body source from DTO
+- `@JsonProperty` maps Json field names with a Java field
 
 ## DAO
 - `@Repository` defines an interface as the DAO type
