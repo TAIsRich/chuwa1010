@@ -82,3 +82,5 @@ public class PostController {
 ```angular2html
 public class PostServiceImpl implements PostService {}
 ```
+### @Document
+`@Document("blog")`
