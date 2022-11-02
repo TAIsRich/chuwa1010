@@ -120,4 +120,9 @@
 
 ## Other
 
-- `@ResponseStatus` defines a class with a returned http response status
+- `@ResponseStatus` defines a class with a returned http response status  
+
+- `@PathVariable` handle template variables in the request URI mapping  
+
+- `@RequestBody` maps the HttpRequest body to a transfer or domain object. enabling automatic deserialization of the
+  inbound HttpRequest body onto a java object  

@@ -4,7 +4,12 @@ import com.chuwa.xhs.dao.PostRepository;
 import com.chuwa.xhs.entity.Post;
 import com.chuwa.xhs.exception.ResourceNotFoundException;
 import com.chuwa.xhs.payload.PostDto;
+import com.chuwa.xhs.payload.PostResponse;
 import com.chuwa.xhs.service.PostService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,10 +18,11 @@ import java.util.stream.Collectors;
 @Service
 public class PostServiceImpl implements PostService {
 
+    @Autowired
     private PostRepository postRepository;
-    public PostServiceImpl(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
+    //public PostServiceImpl(PostRepository postRepository) {
+        //this.postRepository = postRepository;
+   // }
 @Override
 public PostDto createPost(PostDto postDto){
     //convert Dto to Entity
@@ -63,7 +69,32 @@ public PostDto createPost(PostDto postDto){
         postRepository.delete(post);
     }
 
+    @Override
+    public PostResponse getAllPost(int pageNo, int pageSize, String sortBy, String sortDir) {
 
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortBy).ascending()
+                : Sort.by(sortBy).descending();
+
+        // create pageable instance
+
+        PageRequest pageRequest = PageRequest.of(pageNo, pageSize, sort);
+//        PageRequest pageRequest = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
+//        PageRequest pageRequest = PageRequest.of(pageNo, pageSize, Sort.by(sortBy).descending());
+        Page<Post> pagePosts = postRepository.findAll(pageRequest);
+
+        // get content for page abject
+        List<Post> posts = pagePosts.getContent();
+        List<PostDto> postDtos = posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
+
+        PostResponse postResponse = new PostResponse();
+        postResponse.setContent(postDtos);
+        postResponse.setPageNo(pagePosts.getNumber());
+        postResponse.setPageSize(pagePosts.getSize());
+        postResponse.setTotalElements(pagePosts.getTotalElements());
+        postResponse.setTotalPages(pagePosts.getTotalPages());
+        postResponse.setLast(pagePosts.isLast());
+        return postResponse;
+    }
     private PostDto mapToDTO(Post post) {
         PostDto postDto = new PostDto();
         postDto.setId(post.getId());
