@@ -31,3 +31,5 @@ JPA:
 * `@ID`: defines the primary key
 * `@Table`: define the table name
 * `@Column`: to mention the details of a column in the table.
+* `@ManyToOne`: allows you to map a Foreign Key column
+* `@JoinColumn`:allows you to specify the Foreign Key column name.
