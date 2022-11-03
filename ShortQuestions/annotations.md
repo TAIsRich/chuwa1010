@@ -8,6 +8,10 @@
 - `@Column` defines a column's parameter
 - `@CreateTimestamp` injects a current time to the field when created
 - `@UpdateTimestamp` injects a current time to the field when updated
+- `@ManyToOne`
+- `@OneToMany`
+- `@ManyToMany`
+- `@JoinColumn` maps a POJO entity with a related database entity by specifying a foreign key name and nullable
 
 ## Controller
 - `@RestController` defines a contoller class as the REST API contoller layer to handle requests
@@ -20,6 +24,7 @@
 - `@PathVariable` maps field names in path variable with a Java field
 - `@RequestBody` defines a request body source from DTO
 - `@JsonProperty` maps Json field names with a Java field
+- `@JsonPropertyOrder`
 
 ## DAO
 - `@Repository` defines an interface as the DAO type
