@@ -1,57 +1,45 @@
-package com.chuwa.redbook.entity;
+package com.example.mongoblog.entity;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
-
-@Entity
-@Table(
-        name = "posts",
-        uniqueConstraints = {@UniqueConstraint(columnNames = {"title"})}
-        // by using unique constraint, each time we post, title must be unique
-        //for example, we cannot post "title1" twice, instead, we should post like "title1" "title2 "
-        // if we post same title, there will be 500 Internal Server Error
-)
-
+@Document("posts")
 public class Post {
+
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-        )
-    private Long id;
+    private String id;
 
-    @Column(name = "title", nullable = false)
     private String title;
-
-    @Column(name = "description", nullable = false)
     private String description;
-
-    @Column(name = "content", nullable = false)
     private String content;
 
-    @CreationTimestamp
+    @CreatedDate
     private LocalDateTime createDateTime;
 
-    @UpdateTimestamp
+    @LastModifiedDate
     private LocalDateTime updateDateTime;
 
-    public Post(String title, String description, String content) {
+    public Post() {}
+
+    public Post(String id, String title, String description, String content, LocalDateTime createDateTime, LocalDateTime updateDateTime) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.content = content;
+        this.createDateTime = createDateTime;
+        this.updateDateTime = updateDateTime;
     }
 
-    public Post() {
-    }
-
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -98,7 +86,7 @@ public class Post {
     @Override
     public String toString() {
         return "Post{" +
-                "id=" + id +
+                "Id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", content='" + content + '\'' +
