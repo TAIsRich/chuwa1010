@@ -4,7 +4,11 @@ import com.chuwa.rebook.dao.PostRepository;
 import com.chuwa.rebook.entity.Post;
 import com.chuwa.rebook.exception.ResourceNotFoundException;
 import com.chuwa.rebook.payload.PostDto;
+import com.chuwa.rebook.payload.PostResponse;
 import com.chuwa.rebook.service.PostService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -37,10 +41,23 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostDto> getAllPost() {
-        List<Post> posts = postRepository.findAll();
+    public PostResponse getAllPost(int pageNo, int pageSize, String sortBy, String sortDir) {
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name())?
+                Sort.by(sortBy).ascending():Sort.by(sortBy).descending();
+        PageRequest pageRequest= PageRequest.of(pageNo,pageSize,sort);
+        Page<Post> pagePosts = postRepository.findAll(pageRequest);
+
+        List<Post> posts =pagePosts.getContent();
         List<PostDto> postDtos = posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
-        return  postDtos;
+
+        PostResponse postResponse = new PostResponse();
+        postResponse.setContent(postDtos);
+        postResponse.setPageNo(pagePosts.getNumber());
+        postResponse.setPageSize(pagePosts.getSize());
+        postResponse.setTotalElements(pagePosts.getTotalElements());
+        postResponse.setTotalPages(pagePosts.getTotalPages());
+        postResponse.setLast(pagePosts.isLast());
+        return postResponse;
     }
 
     private PostDto mapToDTO(Post post) {
