@@ -24,7 +24,15 @@
 
       allows the creation or update timestamp be persisted in the table
 
-   	- sss
+    - @ManyToOne, @OneToMany, @OneToOne, @ManyToMany
+
+      relationships between entities
+
+    - @JoinColumn
+
+      marks a column as a join column for an entity association
+
+      
 
 3. @Repository
 
@@ -55,3 +63,12 @@
    - @PathVariable
 
      set the template variables in the URL as method parameters
+
+
+
+## Jackson Annotations
+
+1. @JsonProperty
+
+   it is used to map property names with JSON keys during serialization and deserialization
+
