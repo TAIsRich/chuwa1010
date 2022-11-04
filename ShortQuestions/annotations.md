@@ -771,7 +771,7 @@ UserService
 @Autowired
 Person person;
 
-自动装配：sprng通过依赖注入（DI），完成IOC容器中各个组件依赖的关系赋值
+自动装配：spring通过依赖注入（DI），完成IOC容器中各个组件依赖的关系赋值
 
 2、@Autowired自动装配详解
 (1) @Autowired自动装配，默认优先按照类型取IOC容器中寻找对应的组件
