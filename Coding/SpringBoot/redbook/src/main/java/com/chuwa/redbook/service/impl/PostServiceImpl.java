@@ -1,10 +1,12 @@
 package com.chuwa.redbook.service.impl;
 
+import com.chuwa.redbook.dao.PostJPQLRepository;
 import com.chuwa.redbook.dao.PostRepository;
 import com.chuwa.redbook.entity.Post;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDto;
 import com.chuwa.redbook.service.PostService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +15,11 @@ import java.util.stream.Collectors;
 @Service
 public class PostServiceImpl implements PostService {
 
+    @Autowired
     private PostRepository postRepository;
 
+    @Autowired
+    PostJPQLRepository postJPQLRepository;
     public PostServiceImpl(PostRepository postRepository) {
         this.postRepository = postRepository;
     }
@@ -71,6 +76,40 @@ public class PostServiceImpl implements PostService {
         Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
         postRepository.delete(post);
     }
+
+
+    //JPQL
+    @Override
+    public List<PostDto> getAllPostWithJPQL() {
+        return postJPQLRepository.getAllPostWithJPQL().stream().map(post -> mapToDto(post)).collect(Collectors.toList());
+    }
+
+    @Override
+    public PostDto getPostByIdJPQLIndexParameter(Long id, String title) {
+        Post post = postRepository.getPostByIDOrTitleWithJPQLIndexParameters(id, title);
+        return mapToDto(post);
+    }
+
+    @Override
+    public PostDto getPostByIdJPQLNamedParameter(Long id, String title) {
+        Post post = postRepository.getPostByIDOrTitleWithJPQLNamedParameters(id, title);
+        return mapToDto(post);
+    }
+
+    @Override
+    public PostDto getPostByIdSQLIndexParameter(Long id, String title) {
+        Post post = postRepository.getPostByIDOrTitleWithSQLIndexParameters(id, title);
+        return mapToDto(post);
+    }
+
+    @Override
+    public PostDto getPostByIdSQLNamedParameter(Long id, String title) {
+        Post post = postRepository.getPostByIDOrTitleWithSQLNamedParameters(id, title);
+        return mapToDto(post);
+    }
+
+
+
 
     private Post mapToEntity(PostDto postDto){
         Post post = new Post();

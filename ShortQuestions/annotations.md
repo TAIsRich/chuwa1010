@@ -760,7 +760,9 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
 ####  @Autowired  
 
-[Autowired ](https://blog.csdn.net/weixin_43521890/article/details/122137844)
+https://blog.csdn.net/weixin_43521890/article/details/122137844
+
+https://www.codedemo.club/spring-autowire/
 
 UserService
 

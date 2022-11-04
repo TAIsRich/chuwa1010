@@ -8,13 +8,13 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(
-        name="posts",
+        name="post_JPQLtest)",
         uniqueConstraints = {@UniqueConstraint(columnNames = {"title"})}
 )
-
+@NamedQuery(name = "Post.getAll", query = "select p from Post p")
 public class Post {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
 
@@ -28,9 +28,11 @@ public class Post {
     private String content;
 
     @CreationTimestamp
+    @Column(name = "create_date_time")
     private LocalDateTime createDateTime;
 
     @UpdateTimestamp
+    @Column(name = "update_date_time")
     private LocalDateTime updateDateTime;
 
     public Post(){
