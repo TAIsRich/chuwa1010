@@ -7,6 +7,9 @@
    5. @Column: specify the mapped column for a persistent property or field
    6. @CreationTimestamp: marks a property as the creation timestamp of the containing entity
    7. @UpdateTimestamp: marks a property as the update timestamp of the containing entity
+   8. @OneToMany: one row in a table is mapped to multiple rows in another table
+   - @ManyToOne: multiple rows in a table is mapped to one row in another table
+   - @ManyToMany: multiple rows in a table is mapped to multiple rows in another table
 3. @Repository: indicates the class provides the mechanism for storage, retrieval, search, update and delete operation on objects
 4. @Service: mark the class as a service provider
 5. Controller
