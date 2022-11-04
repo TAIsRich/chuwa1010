@@ -34,4 +34,8 @@
     }
 14. @Requestbody
 15. @Pathvariable
-16. 
+16. @Data lambda injection to create setter and getter
+17. @Setter, create setter for class
+18. @Getter create getter for class
+19. @Transactional The @Transactional annotation is metadata that specifies that an interface, class, or method must have transactional semantics;
+20. @TransactionalManagement
