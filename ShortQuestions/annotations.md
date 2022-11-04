@@ -21,3 +21,9 @@
    6. @PutMapping: mapping HTTP PUT requests onto specific handler methods
    7. @PathVariable: handle template variables in the request URI mapping, and set them as method parameters
    8. @ResponseStatus: marks a method or exception class with the status code and reason message that should be returned
+
+6. @Query: value attribute of the method with this annotation contains the JPQL or SQL query to execute
+
+7. @NameQuery: defines the single named query
+
+8. @NameQueries: defines the multiple named queries
