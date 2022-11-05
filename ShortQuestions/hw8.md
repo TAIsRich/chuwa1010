@@ -104,6 +104,7 @@ https://github.com/TAIsRich/chuwa-eij-tutorial/blob/main/02-java-core/src/main/j
     String s = objectMapper.writeValueAsString(foodOutlet);
     objectMapper.readTree()
     ```
+The code is the FoudOutlet package folder under MavenProject.
 
 ## 12. **What is the serialization and deserialization?**
 
@@ -127,10 +128,10 @@ https://github.com/TAIsRich/chuwa-eij-tutorial/blob/main/02-java-core/src/main/j
     //output
     //The average is: 39.7
  ```
-## 14. 抄写，https://github.com/TAIsRich/springboot-
-    redbook/tree/03_post_pageable，你也可以像我一样分branch添加新代码。
-## 15. (Optional) 抄写 https://github.com/TAIsRich/springboot-redbook/tree/04_comm
-    ent你也可以像我一样分branch添加新代码。
+## 14. 抄写，https://github.com/TAIsRich/springboot-redbook/tree/03_post_pageable，你也可以像我一样分branch添加新代码。
+The code is the redbook project folder under Coding.
+## 15. (Optional) 抄写 https://github.com/TAIsRich/springboot-redbook/tree/04_comment你也可以像我一样分branch添加新代码。
+The code is the redbook project folder under Coding.
 ## 16. (Optional) Try to write the CRUD api for a new application Cassandra-Blog
     a. spring 提供了相关dependency,(https://start.spring.io/)
     i.  Spring Data for Apache Cassandra
