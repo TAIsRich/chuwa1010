@@ -4,7 +4,11 @@ import com.chuwa.redbook.dao.PostRepository;
 import com.chuwa.redbook.entity.Post;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDto;
+import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.service.PostService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,7 +40,7 @@ public class PostServiceImpl implements PostService {
         Post post = mapToEntity(postDto);
 
         //call save method of DAO, it will save the information from entity into MySQL database
-        // save() will return the data in database
+        // save() will return the data entity in database
         Post savedPost = postRepository.save(post);
 
         // we transfer the data of savedPost into what frond-end specifically need, and return to controller
@@ -56,7 +60,7 @@ public class PostServiceImpl implements PostService {
 
     // we use lambda and stream API here
     @Override
-    public List<PostDto> getAllPost() {
+    public List<PostDto> getAllPosts() {
         List<Post> posts = postRepository.findAll();
         List<PostDto> postDtos = posts.stream()
                 .map(p -> mapToDTO(p))
@@ -64,15 +68,21 @@ public class PostServiceImpl implements PostService {
         return postDtos;
     }
 
+
     // we use Optional
     @Override
     public PostDto getPostById(long id) {
-//        Optional<Post> post = postRepository.findById(id);
-//        post.orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
-//
+//        Optional<Post> postOpt = postRepository.findById(id);
+//        postOpt.orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
+        // if not throwing exception, we know that post is not null
+        // then we can get this post like we normally do
+        // findById() method will return an Optional Object,
+        // with get() it will return the original object, which is Post
 //        Post post = postRepository.findById(id).get();
-        Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
 
+        // above three lines can be integrated into one:
+
+        Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
         return mapToDTO(post);
     }
 
@@ -93,6 +103,42 @@ public class PostServiceImpl implements PostService {
     public void deletePostById(long id) {
         Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
         postRepository.delete(post);
+    }
+
+    @Override
+    public PostResponse getAllPosts(int pageNo, int pageSize, String sortBy, String sortDir) {
+        // Sort Class is provided by Springboot frame
+        // we just compare our variable sortDir with String "asc",
+        // if equal, we sort by ascending order, otherwise descending
+        // not that Sort.by() is a static method, there are 2 key things
+        // one is sortBy, like we want to sort by id, the other is .ascending() or .descending()
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortBy).ascending()
+                : Sort.by(sortBy).descending();
+
+        // create pageable instance
+        PageRequest pageRequest = PageRequest.of(pageNo, pageSize, sort);
+        // some other way to create PageRequest
+//      PageRequest pageRequest = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
+//      PageRequest pageRequest = PageRequest.of(pageNo, pageSize, Sort.by(sortBy).descending());
+        Page<Post> pagePosts = postRepository.findAll(pageRequest);
+
+        // get content for page object
+        List<Post> posts = pagePosts.getContent();
+        List<PostDto> postDtos = posts.stream()
+                .map(post -> mapToDTO(post))
+                .collect(Collectors.toList());
+
+        // we integrate Page object with postDtos,
+        // just like combine page information and post information into one object, which is postResponse object
+        PostResponse postResponse = new PostResponse();
+        postResponse.setContent(postDtos);
+        postResponse.setPageNo(pagePosts.getNumber());
+        postResponse.setPageSize(pagePosts.getSize());
+        postResponse.setTotalElements(pagePosts.getTotalElements());
+        postResponse.setTotalPages(pagePosts.getTotalPages());
+        postResponse.setLast(pagePosts.isLast());
+
+        return postResponse;
     }
 
     private Post mapToEntity(PostDto postDto) {
