@@ -22,6 +22,8 @@ public class Comment {
     private String email;
     private String body;
 
+    //@JoinColumn combined with a @ManyToOne mapping indicates that:
+    //a given column in the owner entity refers to a primary key in the reference entity
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id", nullable = false)
     private Post post;

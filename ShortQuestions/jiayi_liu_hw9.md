@@ -54,21 +54,40 @@
 
 7. #### What is the cascade = CascadeType.ALL, orphanRemoval = true? and what are the other CascadeType and their features? In which situation we choose which one?
 
-   
+   *CascadeType.ALL* **propagates all operations — including Hibernate-specific ones — from a parent to a child entity.**
+
+   orhanRemoval = true means that if the child becomes a orphan(its parent record is gone), the child record should be removed also.
+
+   cascading is the way to achieve this. **When we perform some action on the target entity, the same action will be applied to the associated entity.**
+
+   All JPA-specific cascade operations are represented by the *javax.persistence.CascadeType* enum containing entries:
+
+   - *ALL*
+   - *PERSIST*
+   - *MERGE*
+   - *REMOVE*
+   - *REFRESH*
+   - *DETACH*
 
    
 
+8. #### What is the fetch = FetchType.LAZY, fetch = FetchType.EAGER? what is the difference? In which situation you choose which one?
+
+   There are two ways in which data is loaded: eager and lazy. 
+
+   **Eager fetch** means that when a record is fentched from the database, all the associated records from related tables are also fetched. Eager fetch is default fetch type used by Hibernate but it is not always the most efficient.
+
+   **Lazy fetch** fetches the records only when they are needed.
+
    
 
-8. What is the fetch = FetchType.LAZY, fetch = FetchType.EAGER? what is the difference? In which situation you choose which one?
+9. #### What is the rule of JPA naming convention? Shall we implement the method by ourselves? Could you list some examples?
+
+   JPA methods use save/find/delete to CRUD data and convert SQL column names to Camel-Case with SQL-like operators (And, Or, Between, etc.) to specify lookup conditions. We do not need to implement such methods. Examples include `findByFirstNameOrLastName(a,b)`, `findbyAgeBetween(a,b)`.
 
    
 
-9. What is the rule of JPA naming convention? Shall we implement the method by ourselves? Could you list some examples?
-
-   
-
-10. Try to use JPA advanced methods in your class project. In the repository layer, you need to use the naming convention to use the method provided by JPA.
+10. #### Try to use JPA advanced methods in your class project. In the repository layer, you need to use the naming convention to use the method provided by JPA.
 
     
 

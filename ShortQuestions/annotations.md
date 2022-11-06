@@ -88,6 +88,22 @@
 
 - `@UpdateTimestamp`: injects a current time to the field when updated
 
+- `@JsonProperty` is a marker annotation to define logical property. `@JsonProperty` can be annotated at non-static setter or getter method or non-static object field. The logical property is used in serialization and de-serialization of JSON.
+
+- `@JoinColumn` marks a column as a join column for an entity association or an element collection.
+
+- `@ManyToOne` mapping means that multiple rows in a table is mapped to one row in another table.
+
+- `@OneToMany` mapping means that one row in a table is mapped to multiple rows in another table.
+
+- `@ManyToMany` mapping means that multiple rows in a table is mapped to multiple rows in another table.
+
+  The ***mappedBy*** parameter in `@ManyToOne`, `@ManyToMany`, and `@OneToMany` is what we use to tell Hibernate which variable we are using to represent the parent class in our child class.
+  
+  The `@OneToMany(fetch = FetchType.EAGER)` means that we **does load** the foreign keys.
+  
+  The `@OneToMany(fetch = FetchType.LAZY)` means that we does **NOT** load the foreign keys.
+
 
 
 ## Controller

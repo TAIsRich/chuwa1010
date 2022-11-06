@@ -20,6 +20,11 @@ public class CommentController {
      * why intellij give us this warning? constructor injection.
      * how many ways we can do Dependency Injection?
      * which way is the best one?
+     *
+     * There are 3 ways that we can do dependency injection
+     * 1. field injection
+     * 2. constructor injection
+     * 3. setter injection
      */
     @Autowired
     private CommentService commentService;
