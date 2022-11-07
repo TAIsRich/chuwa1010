@@ -126,3 +126,7 @@
 
 - `@RequestBody` maps the HttpRequest body to a transfer or domain object. enabling automatic deserialization of the
   inbound HttpRequest body onto a java object  
+- `@RequestPara` To extract query parameters, form parameters and even files from the request.
+- `@ResponseBody` Maps the HttpRequest body to a transfer or Domain object, enabling automatic deserialization of the inbound HttpRequest Body onto a java object.
+- `@RestController` all the action methods in the marked clas will return the JSON response.
+- `@PathVariable` bring the values from the URL to the method arguments.
