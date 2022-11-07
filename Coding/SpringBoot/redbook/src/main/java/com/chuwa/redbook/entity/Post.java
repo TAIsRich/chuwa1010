@@ -5,16 +5,18 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(
-        name="post_JPQLtest)",
+        name="post",
         uniqueConstraints = {@UniqueConstraint(columnNames = {"title"})}
 )
-@NamedQuery(name = "Post.getAll", query = "select p from Post p")
+
 public class Post {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;
 
@@ -27,12 +29,21 @@ public class Post {
     @Column(name = "content", nullable = false)
     private String content;
 
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Comment> comments = new HashSet<>();
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
+
     @CreationTimestamp
-    @Column(name = "create_date_time")
     private LocalDateTime createDateTime;
 
     @UpdateTimestamp
-    @Column(name = "update_date_time")
     private LocalDateTime updateDateTime;
 
     public Post(){
