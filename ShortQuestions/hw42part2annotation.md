@@ -130,3 +130,7 @@
 - `@ResponseBody` Maps the HttpRequest body to a transfer or Domain object, enabling automatic deserialization of the inbound HttpRequest Body onto a java object.
 - `@RestController` all the action methods in the marked clas will return the JSON response.
 - `@PathVariable` bring the values from the URL to the method arguments.
+- `@Transactional` control a unit of work, if one step fails, whole transaction fails. 
+- `@NamedQuery` query with its name and its query 
+- `@Queries` only query 
+- `@PersistenceContext` for EntityManager
