@@ -41,3 +41,22 @@
 11. `@Autowired`
 
     used for automatic dependency injection. Spring framework is built on dependency injection and we inject the class dependencies through spring bean configuration file
+
+12. `@Service`
+
+     defines a service class, such as business basic logic, and call external APIs
+
+13. `@ResponseStatus`
+
+    mark a method or exception class with the status code and reason message that should be returned. It causes Spring boot to respond with the specified HTTP status code whenever the exception is thrown from your controller.
+
+14. `@PathVariable`
+
+    It is used to extract the values from the URI. It is most suitable for the RESTful web service, where the URL contains a path variable. We can define multiple `@PathVariable` in a method.
+
+15. `@Bean`
+
+    It is a method-level annotation. It is an alternative of XML <bean> tag. It tells the method to produce a bean to be managed by Spring Container.
+
+
+
