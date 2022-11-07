@@ -104,7 +104,7 @@
   
   The `@OneToMany(fetch = FetchType.LAZY)` means that we does **NOT** load the foreign keys.
 
-
+- `@NamedQuery` is defined as a query with a **predefined unchangeable query string**. Instead of dynamic queries, usage of named queries may improve code organization by separating the JPQL query strings from POJO. **It also passes the query parameters** rather than embedding literals dynamically into the query string and results in more efficient queries.
 
 ## Controller
 
@@ -126,7 +126,44 @@
 
   @Repository Annotation is a specialization of **@Component** annotation which **is used to indicate that the class provides the mechanism for storage, retrieval, update, delete and search operation on objects**. Though it is a specialization of @Component annotation, so Spring Repository classes are autodetected by spring framework through classpath scanning. **This annotation is a general-purpose stereotype annotation which very close to the [DAO pattern](https://www.geeksforgeeks.org/data-access-object-pattern/) where DAO classes are responsible for providing CRUD operations on database tables.** 
 
+- `@PersistenceContext`The ***EntityManager*** is the interface that lets us interact with the **persistence context.** Whenever we use the ***EntityManager***, we are actually interacting with the **persistence context***.*
 
+- `@Transactional` makes sure that all of operations are atomic
+
+  ```java
+  @Repository
+  @Transactional
+  public class PostJPQLRepositoryImpl implements PostJPQLRepository {
+  
+      @PersistenceContext
+      EntityManager entityManager;
+  
+      @Override
+      public List<Post> getAllPostWithJPQL() {
+          TypedQuery<Post> posts = entityManager.createNamedQuery("Post.getAll", Post.class);
+          return posts.getResultList();
+      }
+  }
+  
+  ```
+
+- `@Query` JPQL interacts with database for CRUD operations
+
+  ```java
+  /**
+  * JPQL
+  * use Entity name other than database table name.
+  * index Parameters
+  * @return post
+  */
+  
+  @Query("select p from Post p where p.id = :key or p.title = :title")
+  Post getPostByIDOrTitleWithJPQLNamedParameters(@Param("key") Long id,
+                                                     @Param("title") String title);
+  
+  ```
+
+  
 
 ## Service
 
