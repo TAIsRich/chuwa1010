@@ -97,7 +97,7 @@ public class PostServiceImpl implements PostService {
         PageRequest pageRequest = PageRequest.of(pageNo,pageSize);
         Page<Post> pagePost= postRepository.findAll(pageRequest);
 
-        // get content for page abject
+        // get content for page object
         List<Post> posts = pagePost.getContent();
         List<PostDto> postDtos = posts.stream().map(post->mapToDTO(post)).collect(Collectors.toList());
         PostResponse postResponse = new PostResponse();

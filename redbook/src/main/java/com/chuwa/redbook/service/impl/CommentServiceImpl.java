@@ -8,6 +8,7 @@ import com.chuwa.redbook.exception.BlogAPIException;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.CommentDto;
 import com.chuwa.redbook.service.CommentService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -22,17 +23,19 @@ public class CommentServiceImpl implements CommentService {
     CommentRepository commentRepository;
     @Autowired
     private PostRepository postRepository;
+    private ModelMapper modelMapper;
 
     @Override
     public CommentDto createComment(long postId, CommentDto commentDto) {
-        Comment comment = mapToEntity(commentDto);
+       // Comment comment = mapToEntity(commentDto);
+        Comment comment = modelMapper.map(commentDto,Comment.class);
         Post post = postRepository.findById(postId).orElseThrow(()->new ResourceNotFoundException("Post","id",postId));
 
         // set post to comment entity
         // comment entity to DB
         comment.setPost(post);
         Comment saveComment =commentRepository.save(comment);
-        return mapToDto(saveComment);
+        return modelMapper.map(saveComment,CommentDto.class);
     }
 
 
@@ -41,7 +44,7 @@ public class CommentServiceImpl implements CommentService {
     public List<CommentDto> getCommentsByPostId(long postId) {
         List<Comment> comments= commentRepository.findByPostId(postId);
         // convert list of comment entities to list of comment dto's
-        return comments.stream().map(comment -> mapToDto(comment)).collect(Collectors.toList());
+        return comments.stream().map(comment -> modelMapper.map(comment, CommentDto.class)).collect(Collectors.toList());
 
 
     }
@@ -60,7 +63,7 @@ public class CommentServiceImpl implements CommentService {
         }
 
 
-        return mapToDto(comment);
+        return modelMapper.map(comment,CommentDto.class);
     }
 
     @Override
