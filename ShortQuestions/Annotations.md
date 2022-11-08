@@ -1,4 +1,6 @@
+lin_zhang/hw12
 ## Annotations
+
 
 @SpringBootApplication
 
@@ -19,6 +21,7 @@ public class RedbookApplication {
 }
 ```
 
+lin_zhang/hw12
 @EnableTransactionManagement
 @EnableTransactionManagement annotation can be used in a @Configuration class to enable transactional support. 
 
@@ -82,6 +85,7 @@ private LocalDateTime createDateTime;
 private LocalDateTime updateDateTime;
 ```
 
+lin_zhang/hw12
 @JsonProperty
 @JsonProperty(name) tells Jackson ObjectMapper to map the JSON property name to the annotated Java field's name.
 @JsonProperty can also be used in payload package(DTO). 
@@ -137,6 +141,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 }
 ```
 
+lin_zhang/hw12
 ###### Used by payload
 @NotEmpty
 @Size
@@ -154,6 +159,7 @@ private String email;
 private String body;
 ```
 
+
 ###### Used by service
 
 @Service
@@ -166,6 +172,7 @@ public class PostServiceImpl implements PostService {
 }
 ```
 
+lin_zhang/hw12
 @Query
 This annotation is used to execute both JPQL and native SQL queries.
 ```
@@ -206,6 +213,7 @@ The @PostMapping annotated methods in the @Controller annotated classes handle t
 @RequestBody
 @RequestBody annotation maps the HttpRequest body to a transfer or domain object, enabling automatic deserialization of the inbound HttpRequest body onto a Java object.
 
+lin_zhang/hw12
 
 Example
 ```
@@ -223,6 +231,7 @@ public class PostController {
     }
 }
 ```
+lin_zhang/hw12
 @GetMapping
 The @GetMapping annotated methods in the @Controller annotated classes handle the HTTP GET requests matched with the given URI expression.
 
