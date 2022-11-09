@@ -27,3 +27,14 @@
 7. @NameQuery: defines the single named query
 
 8. @NameQueries: defines the multiple named queries
+
+9. Exception handling
+
+   1. @ControllerAdvice: handling exceptions across the whole application
+
+   2. @ExceptionHandler: define exception handling methods
+
+10. Validation
+
+    1. @Valid: using on controller to validate the data passed into it
+    2. Validation annotations: @NotNull, @NotEmpty, @NotBlank, @Min, @Max, @Email
