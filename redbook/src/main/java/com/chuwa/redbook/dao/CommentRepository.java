@@ -13,9 +13,9 @@ import java.util.List;
 public interface CommentRepository extends JpaRepository<Comment,Long> {
     List<Comment> findByPostId(long postId);
 
-    @Query("select c from Comment c where c.email=?1 and c.name=?2")
-    Comment getCommentbyemailandname(String email, String name);
-
-    @Query("select c from Comment c where c.id=:key and c.post=:post")
-    Comment getCommentByidAndPost(@Param("id") Long key, @Param("post") Post post);
+//    @Query("select c from Comment c where c.email=?1 and c.name=?2")
+//    Comment getCommentbyemailandname(String email, String name);
+//
+//    @Query("select c from Comment c where c.id=:key and c.post=:post")
+//    Comment getCommentByidAndPost(@Param("id") Long key, @Param("post") Post post);
 }

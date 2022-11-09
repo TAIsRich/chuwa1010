@@ -39,3 +39,12 @@
 18. @Getter create getter for class
 19. @Transactional The @Transactional annotation is metadata that specifies that an interface, class, or method must have transactional semantics;
 20. @TransactionalManagement
+21. @Component the class is a component, need to scan 
+22. @ControllerService use for global exception
+23. @ExceptionHandler  to map the exception class
+24. @NotNull validate not null
+25. @min()  not less than
+26. @Max()  not greater than
+27. @valid the request param to valid 
+28. @Bean  tells the spring to add this to IOC
+29. @Configuration tells that there is something in this class need to scan and add to IOC
