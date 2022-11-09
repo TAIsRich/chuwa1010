@@ -59,6 +59,8 @@ inject collaborating beans to this class
 declare receiving post request
 ### @GetMapping
 declare receiving get request
+### @RequestBody
+### @PathVariable
 ```angular2html
 @RestController
 @RequestMapping("/api/v1/posts")
@@ -124,3 +126,65 @@ can define JPQL or SQL query
 ### @Transactional
 
 ###  @PersistenceContext
+
+### @Configuration
+configure a class in project, similar with xml configuration file;
+### @Bean
+configure a function, similar with <bean> in xml configuration file
+```angular2html
+@Configuration
+public class CommonConfig {
+    @Bean
+    public ModelMapper modelMapper(){
+        return new ModelMapper();
+    }
+}
+```
+### @RestController
+@Controller+@ResponseBody
+### @ResponseStatus
+set response http status
+`@ResponseStatus(code = HttpStatus.OK)`
+### @ControllerAdvice
+catch all exceptions globally
+### @ExceptionHandler
+handle specific exceptions and send the exceptions own response to client
+```angular2html
+@ControllerAdvice
+public class GlobalException {
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorDetails> handleResourceNotFoundException(ResourceNotFoundException exception,
+                                                                        WebRequest webRequest){...}
+}
+```
+### @NotEmpty
+annotate variable in dto not empty
+### @Email
+annotate variable in dto is email
+### @Size
+annotate size of variable in dto
+```angular2html
+public class CommentDto {
+
+    private long id;
+    @NotEmpty(message = "Name should not be null or empty")
+    private String name;
+    @NotEmpty(message = "Email should not be null or empty")
+    @Email
+    private String email;
+    @NotEmpty
+    @Size(min = 5, message = "Comment must be minimum 5 characters")
+    private String body;
+}
+```
+### @Valid
+add this annotation before the parameter we want to check
+
+`    public ResponseEntity<CommentDto> createComment(@PathVariable(value = "postId") long id,
+@Valid @RequestBody CommentDto commentDto) `
+### @JsonPropertyOrder
+order the json properties
+### @JsonProperty
+set the attribute's name in JSON
+`@JsonProperty("username")
+private String name;`
