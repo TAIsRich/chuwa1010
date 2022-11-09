@@ -14,6 +14,7 @@
 - `@JoinColumn` maps a POJO entity with a related database entity by specifying a foreign key name and nullable
 - `@NamedQuery` defines a name for a JPQL query in an entity class
 - `@NamedQueries` groups multiple named queries together in an entity class
+- `@Valid` defines the DTO to be validated
 
 ## Controller
 - `@RestController` defines a contoller class as the REST API controller layer to handle requests
@@ -38,3 +39,11 @@
 
 ## Other
 - `@ResponseStatus` defines a class with a returned http response status
+- `@Configuration` defines a Java class as the configuration file for the IOC container
+- `@Bean` tells the IOC container to put the thir-party dependency as a component for the framework
+- `@ControllerAdvice` can define an exception handler to return certain behavior to the controller level
+- `@ExceptionHandler` defines a method to handle a specific exception belong to a exception class
+- `@NotEmpty` defines a field with validation constraint to be not empty
+- `@Email` defines a field with validation constraint to adhere to email format
+- `@Size` defines a field with validation constraint to certain min and max sizes
+
