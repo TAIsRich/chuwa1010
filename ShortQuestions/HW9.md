@@ -72,4 +72,3 @@
 8. ###### *Check out a new branch(https://github.com/TAIsRich/springboot-redbook/tree/hw02_01_jdbcTemplate) from branch 02_post_RUD, replace the dao layer usingJdbcTemplate.*
 
 9. ###### *(Optional) use JDBC to read the data from database.*
-
