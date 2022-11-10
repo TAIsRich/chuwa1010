@@ -1,0 +1,101 @@
+## Hw8
+
+#### 1. List all of the new annotations to your annotaitons.md and explain its role.
+#### 2. how do you do the debug?
+1. read error message
+2. using debugging tools, create some breakpoints to check what went wrong
+
+#### 3. What is DTO, VO, Payload, DO?
+`DTO（Data Transfer Object) `： encapsulates values to carry data between processes or networks.
+    is a data container which is used to transport data between layers and tiers. It mainly contains of attributes.
+
+`VO (Value Object)`： is a special type of object that can hold values such as java.lang.Integer and java.lang.Long.
+A VO should always override the equals() and hashCode() methods.
+`Payload`：is data that clients send to the server in the body of an HTTP POST, PUT, or PATCH message that contains important information about the request.
+`DO (Data Objects)`：
+
+#### 4. What is @JsonProperty("description_yyds") (不会的话，课上问)?
+annotation  used to define a non-static method as a "setter" or "getter" for a logical property 
+or is used to map property names with JSON keys during serialization and deserialization.
+
+@JsonProperty("description_yyds") indicate the property name is "description_yyds" in JSON
+
+#### 5. do you know what is jackson?
+```xml
+<dependency>
+  <groupId>com.fasterxml.jackson.core</groupId>
+  <artifactId>jackson-databind</artifactId>
+  <version>2.13.3</version>
+  <scope>compile</scope>
+</dependency>
+```
+Jackson is a high-performance JSON processor used for Java. It is the most popular library used for serializing Java objects or Map to JSON and vice-versa.
+
+#### 6. What is spring-boot-stater?
+Spring Boot Starters are dependency descriptors that can be added under the <dependencies> section in pom.xml. 
+There are around 50+ Spring Boot Starters for different Spring and related technologies. 
+These starters give all the dependencies under a single name.
+
+```xml
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+```
+if we want to build web including RESTful applications using Spring MVC, we can use `spring-boot-starter-web` dependency
+
+other starters:
+- **spring-boot-starter-data-jdbc**: starter for using Spring Data JDBC
+- **spring-boot-starter-data-jpa**: Starter for using Spring Data JPA with Hibernate
+- **spring-boot-starter-test**: Starter for testing Spring Boot applications with libraries including JUnit Jupiter, Hamcrest and Mockito
+
+
+#### 7. do you know @RequestMapping(value = "/users", method = RequestMethod.POST) ? could you list CRUD by this style?
+@RequestMapping is the most common and widely used annotation in Spring MVC. 
+It is used to map web requests onto specific handler classes and/or handler methods.
+
+CRUD:
+GET: `@RequestMapping(value = "/users", method = RequestMethod.GET)`
+
+PUT: `@RequestMapping(value = "/users/{id}", method = RequestMethod.PUT)`
+
+DELETE: `@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)`
+
+#### 8. What is ResponseEntity? why do we need it?
+```
+new ResponseEntity<>(postResponse, HttpStatus.OK); 
+new ResponseEntity<>(postResponse,HttpStatus.CREATED);
+ResponseEntity.ok(postService.getPostById(id));
+```
+ResponseEntity represents the whole HTTP response: status code, headers, and body
+we can use it to fully configure the HTTP response. 
+If we want to use it, we have to return it from the endpoint
+
+#### 9. What is ResultSet in jdbc? and describe the flow how to get data using JDBC
+result set is an object that represents a set of data returned from a data source, usually as the result of a query
+
+#### 10. What is the ORM framework?
+ORM is a programming technique for converting data between type systems using object-oriented programming languages
+
+#### 11. Learn how to use ObjectMapper by this example.
+
+#### 12. What is the serialization and desrialization?
+    a. https://hazelcast.com/glossary/serialization/
+Serialization:  is a mechanism of converting the state of an object into a byte stream
+
+Deserialization: is the reverse process where the byte stream is used to recreate the actual Java object in memory.
+
+#### 13. use stream api to get the average of the array [20, 3, 78, 9, 6, 53, 73, 99, 24, 32].
+
+```java
+import java.util.Arrays;
+
+class Main {
+    public static void main(String[] args) {
+        int[] array = new int[]{20, 3, 78, 9, 6, 53, 73, 99, 24, 32};
+        return Arrays.stream(array).average().orElse(Double.NaN);
+    }
+}
+
+```
+#### 14. 抄写，https://github.com/TAIsRich/springboot- redbook/tree/03_post_pageable，你也可以像我一样分branch添加新代码。

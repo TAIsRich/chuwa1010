@@ -31,3 +31,7 @@ JPA:
 * `@ID`: defines the primary key
 * `@Table`: define the table name
 * `@Column`: to mention the details of a column in the table.
+* `@OneToOne`: Defines a single-valued association to another entity that has one-to-one multiplicity
+* `@ManyToOne`: a single-valued association to another entity class that has many-to-one multiplicity
+* `@ManyToMany`: A relationship is a connection between two types of entities. In the case of a many-to-many relationship, both sides can relate to multiple instances of the other side.
+* `@JoinColumn`:allows you to specify the Foreign Key column name. whoever owns the foreign key column gets the @JoinColumn annotation.
