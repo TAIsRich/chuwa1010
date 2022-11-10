@@ -134,3 +134,4 @@
 - `@NamedQuery` query with its name and its query 
 - `@Queries` only query 
 - `@PersistenceContext` for EntityManager
+- `@Valid` defines the DTO to be validated
