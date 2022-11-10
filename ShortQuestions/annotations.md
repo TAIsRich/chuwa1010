@@ -92,3 +92,24 @@ With the help of @RequestAttribute annotation, we can access objects that are po
 @JsonPropertyOrder: customize the order of properties in Json file.
 
 @ManytoOne: the relationship between two tables is many to one.
+
+@Query: this annotation can only be used to annotate repository interface methods. The call of the annotated methods will trigger the execution of
+the statement found in it. This annotation supports both native SQL and JPQL.
+
+@Transactional: is the metadata that specifies the semantics of the transactions on a method.Transactional annotation provides the application the ability
+to declaratively control transaction boundaries on CDI managed beans, as well as classes defined as managed beans by the Java EE specification, at both the 
+class and method level where method level annotations override those at the class level.
+
+@SpringBootApplication: it is used to mark a configuration class that declares one or more @Bean methods and also triggers auto-configuration and 
+component scanning. It’s same as declaring a class with @Configuration, @EnableAutoConfiguration and @ComponentScan annotations.
+
+@EnableTransactionManagement：enables Spring's annotation-driven transaction management capability. It is not required.  
+It is optional in Spring boot, provided that spring-data* or spring-tx are found in classpath.
+
+@bean:  is a method-level annotation and a direct analog of the XML <bean/> element. The annotation supports most of the attributes offered by <bean/>, 
+such as: init-method , destroy-method , autowiring , lazy-init , dependency-check , depends-on and scope.
+It is used to mark a method as one that creates a bean and Spring will then add it to the context for us. The return type of the method defines the type of bean that is created.
+
+@Configuration: indicates that the class has @Bean definition methods. So Spring container can process the class and generate 
+Spring Beans to be used in the application. This annotation is part of the spring core framework.
+

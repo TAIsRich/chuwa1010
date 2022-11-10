@@ -6,6 +6,7 @@ import com.chuwa.redbook.payLoad.PostDto;
 import com.chuwa.redbook.payLoad.PostResponse;
 import com.chuwa.redbook.service.PostService;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,6 +20,12 @@ import java.util.stream.Collectors;
 public class PostServiceImpl implements PostService {
     @Autowired
     private PostRepository postRepository;
+
+    /**
+     * use this modelMapper to replace the mapToDto, mapToEntity methods.
+     */
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
     public PostDto createPost(PostDto postDto) {
@@ -34,7 +41,9 @@ public class PostServiceImpl implements PostService {
         // 此时已成功把request body的信息传递给entity
 
         //covert DTO to Entity
-        Post post = mapToEntity(postDto);
+        // use modelMapper to replace mapToEntity
+        //Post post = mapToEntity(postDto);
+        Post post = modelMapper.map(postDto, Post.class);
 
         // 调用Dao的save 方法，将entity的数据存储到数据库MySQL
         // save()会返回存储在数据库中的数据
@@ -47,22 +56,27 @@ public class PostServiceImpl implements PostService {
 //        postResponse.setDescription(savedPost.getDescription());
 //        postResponse.setContent(savedPost.getContent());
 
-        PostDto postResponse = mapToDTO(savedPost);
-
-        return postResponse;
+        //PostDto postResponse = mapToDTO(savedPost);
+        //return postResponse;
+        return modelMapper.map(savedPost, PostDto.class);
     }
 
     @Override
     public List<PostDto> getAllPost() {
         List<Post> posts = postRepository.findAll();
-        List<PostDto> postDtos = posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
+        //replace mapToDto with modelMapper
+        //List<PostDto> postDtos = posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
+        List<PostDto> postDtos = posts.stream().map(post -> modelMapper.map(post, PostDto.class)).collect(Collectors.toList());
+
         return postDtos;
     }
 
     @Override
     public PostDto getPostById(long id){
         Post post= postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
-        return mapToDTO(post);
+        //replace mapToDto with modelMapper
+        return modelMapper.map(post, PostDto.class);
+        //return mapToDTO(post);
     }
 
     @Override
@@ -73,7 +87,9 @@ public class PostServiceImpl implements PostService {
         post.setContent(postDto.getContent());
 
         Post updatePost= postRepository.save(post);
-        return mapToDTO(updatePost);
+        //replace mapToDto with modelMapper
+        return modelMapper.map(updatePost, PostDto.class);
+        //return mapToDTO(updatePost);
     }
 
     @Override
@@ -88,11 +104,17 @@ public class PostServiceImpl implements PostService {
                 : Sort.by(sortBy).descending();
         //create pageable instance
         PageRequest pageRequest = PageRequest.of(pageNo, pageSize, sort);
+//        PageRequest pageRequest = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
+//        PageRequest pageRequest = PageRequest.of(pageNo, pageSize, Sort.by(sortBy).descending());
+
         Page<Post> pagePosts = postRepository.findAll(pageRequest);
 
         //get content for page object
         List<Post> posts = pagePosts.getContent();
-        List<PostDto> postDtos = posts.stream().map(post-> mapToDTO(post)).collect(Collectors.toList());
+
+        //replace mapToDto with modelMapper
+       // List<PostDto> postDtos = posts.stream().map(post-> mapToDTO(post)).collect(Collectors.toList());
+        List<PostDto> postDtos = posts.stream().map(post -> modelMapper.map(post, PostDto.class)).collect(Collectors.toList());
 
         PostResponse postResponse = new PostResponse();
         postResponse.setContent(postDtos);
@@ -104,6 +126,7 @@ public class PostServiceImpl implements PostService {
         return  postResponse;
     }
 
+/*
     private PostDto mapToDTO(Post post){
         PostDto postDto = new PostDto();
         postDto.setId(post.getId());
@@ -121,4 +144,6 @@ public class PostServiceImpl implements PostService {
         post.setContent(postDto.getContent());
         return post;
     }
+
+ */
 }

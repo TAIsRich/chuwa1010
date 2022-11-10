@@ -8,6 +8,8 @@ import com.chuwa.redbook.exception.BlogAPIException;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payLoad.CommentDto;
 import com.chuwa.redbook.service.CommentService;
+
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -23,24 +25,40 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private PostRepository postRepository;
 
+    /*
+    * use this modelMapper to replace the mapToDto, mapToEntity methods
+    * */
+    @Autowired
+    private ModelMapper modelMapper;
+
     @Override
     public CommentDto createComment(long postId, CommentDto commentDto){
-        Comment comment= mapToEntity(commentDto);
+        //use modelMapper to replace mapToEntity,
+       // Comment comment= mapToEntity(commentDto);
+        Comment comment = modelMapper.map(commentDto, Comment.class);
         //retrieve post entity by id
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new ResourceNotFoundException("post", "id", postId));
         //set post to comment entity
-        comment.setPost(post);
+        comment.setPost(post); //找到posts表中的post id，加入到comment 里作为post_id
         //comment entity to DB
         Comment  savedComment= commentRepository.save(comment);
-        return mapToDto(savedComment);
+
+        //use modelMapper to replace mapToDto
+        //return mapToDto(savedComment);
+        return modelMapper.map(savedComment, CommentDto.class);
     }
     @Override
     public List<CommentDto> getComemntsByPostId(long postId){
         //retrieve comments by postId
         List<Comment> comments = commentRepository.findByPostId(postId);
         //convert list of comment entities to list of comment dtos
-        return comments.stream().map(comment-> mapToDto(comment)).collect(Collectors.toList());
+
+        //return mapToDto(savedComment);
+        //return comments.stream().map(comment-> mapToDto(comment)).collect(Collectors.toList());
+
+        //use modelMapper to replace mapToDto
+        return comments.stream().map(comment -> modelMapper.map(comment, CommentDto.class)).collect(Collectors.toList());
     };
     @Override
     public CommentDto getCommentById(Long postId, Long commentId){
@@ -50,11 +68,13 @@ public class CommentServiceImpl implements CommentService {
         //retrieve comment by id
         Comment comment = commentRepository.findById(commentId)
                 .orElseThrow(()-> new ResourceNotFoundException("Comment", "id", commentId));
-        //
+        //业务逻辑
         if(!comment.getPost().getId().equals(post.getId())){
-            throw new BlogAPIException(HttpStatus.BAD_GATEWAY, "Comment does not belong to post");
+            throw new BlogAPIException(HttpStatus.BAD_REQUEST, "Comment does not belong to post");
         }
-        return mapToDto(comment);
+        //use modelMapper to replace mapToDto
+        return modelMapper.map(comment, CommentDto.class);
+        //return mapToDto(comment);
 
     };
     @Override
@@ -76,7 +96,9 @@ public class CommentServiceImpl implements CommentService {
 
         Comment updateComment= commentRepository.save(comment);
 
-        return mapToDto(updateComment);
+        //use modelMapper to replace mapToDto
+        return modelMapper.map(updateComment, CommentDto.class);
+       // return mapToDto(updateComment);
     };
     @Override
     public void deleteComment(Long postId, Long commentId){
@@ -93,6 +115,8 @@ public class CommentServiceImpl implements CommentService {
         commentRepository.delete(comment);
 
     };
+
+/*
 
     private CommentDto mapToDto(Comment comment){
         CommentDto commentDto = new CommentDto();
@@ -112,4 +136,6 @@ public class CommentServiceImpl implements CommentService {
 
         return comment;
     }
+
+ */
 }

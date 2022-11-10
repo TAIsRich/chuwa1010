@@ -7,18 +7,46 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+
+import javax.validation.Valid;
+
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1")
 public class CommentController {
+    /**
+     * TODO: Questions
+     * why intellij give us this warning? constructor injection.
+     * how many ways we can do Dependency Injection?
+     * which way is the best one?
+     */
+    //Method 1: field injection
     @Autowired
     private CommentService commentService;
+
+    /*
+    * //Method 2: constructor-- the best method
+    @Autowired
+    private CommentService commentService;
+
+    public CommentController(CommentService commentService) {
+        this.commentService = commentService;
+    }
+    //Method 3: setter
+    @Autowired
+    private CommentService commentService;
+    public void setCommentService(CommentService commentService) {
+        this.commentService = commentService;
+    }
+    * */
+
 
     //post comments by post id
     @PostMapping("/posts/{postId}/comments")
     public ResponseEntity<CommentDto> createComment(@PathVariable(value="postId") long id,
-                                                    @RequestBody CommentDto commentDto) {
+                                                    @Valid @RequestBody CommentDto commentDto) {
         return new ResponseEntity<>(commentService.createComment(id, commentDto), HttpStatus.CREATED);
     }
 
@@ -43,7 +71,7 @@ public class CommentController {
     //http:{{localhost}}/api/v1/posts/3/comments/1
     public ResponseEntity<CommentDto> updateComment(@PathVariable(value="postId") Long postId,
                                                     @PathVariable(value="id") Long commentId,
-                                                    @RequestBody CommentDto commentDto) {
+                                                    @Valid @RequestBody CommentDto commentDto) {
         CommentDto updateComment= commentService.updateComment(postId, commentId, commentDto);
         return new ResponseEntity<>(updateComment, HttpStatus.OK);
     }
