@@ -8,6 +8,7 @@ import com.chuwa.redbook.exception.BlogAPIException;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payLoad.CommentDto;
 import com.chuwa.redbook.service.CommentService;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,6 +53,7 @@ public class CommentServiceImpl implements CommentService {
         //retrieve comments by postId
         List<Comment> comments = commentRepository.findByPostId(postId);
         //convert list of comment entities to list of comment dtos
+
         //return mapToDto(savedComment);
         //return comments.stream().map(comment-> mapToDto(comment)).collect(Collectors.toList());
 
@@ -113,7 +115,9 @@ public class CommentServiceImpl implements CommentService {
         commentRepository.delete(comment);
 
     };
+
 /*
+
     private CommentDto mapToDto(Comment comment){
         CommentDto commentDto = new CommentDto();
         commentDto.setId(comment.getId());
