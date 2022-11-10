@@ -2,7 +2,9 @@ package com.chuwa.rebook.controller;
 
 import com.chuwa.rebook.entity.Post;
 import com.chuwa.rebook.payload.PostDto;
+import com.chuwa.rebook.payload.PostResponse;
 import com.chuwa.rebook.service.PostService;
+import com.chuwa.rebook.util.AppConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +24,13 @@ public class PostController {
                 HttpStatus.CREATED);
     }
     @GetMapping
-    public List<PostDto> getAll(){
-        return postService.getAllPost();
+    public PostResponse getAll(
+        @RequestParam(value = "pageNo", defaultValue = AppConstants.DEFAULT_PAGE_NUMBER,required = false) int pageNo,
+        @RequestParam(value = "pageSize",defaultValue = AppConstants.DEFAULT_PAGE_SIZE,required = false) int pageSize,
+        @RequestParam(value = "sortBy", defaultValue = AppConstants.DEFAULT_SORT_BY,required = false) String sortBy,
+        @RequestParam(value ="sortDir",defaultValue = AppConstants.DEFAULT_SORT_DIR,required = false) String sortDir
+    ){//http://localhost:8080/api/v1/posts?pageNo=1&pageSize=1
+        return postService.getAllPost(pageNo, pageSize, sortBy, sortDir);
     }
     @GetMapping("/{id}")
     public ResponseEntity<PostDto> getPostById(@PathVariable(name ="id") long id){
