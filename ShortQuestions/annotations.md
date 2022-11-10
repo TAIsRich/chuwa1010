@@ -760,7 +760,9 @@ public interface UserRepository extends JpaRepository<User,Long> {
 
 ####  @Autowired  
 
-[Autowired ](https://blog.csdn.net/weixin_43521890/article/details/122137844)
+https://blog.csdn.net/weixin_43521890/article/details/122137844
+
+https://www.codedemo.club/spring-autowire/
 
 UserService
 
@@ -771,7 +773,7 @@ UserService
 @Autowired
 Person person;
 
-自动装配：sprng通过依赖注入（DI），完成IOC容器中各个组件依赖的关系赋值
+自动装配：spring通过依赖注入（DI），完成IOC容器中各个组件依赖的关系赋值
 
 2、@Autowired自动装配详解
 (1) @Autowired自动装配，默认优先按照类型取IOC容器中寻找对应的组件
@@ -862,4 +864,58 @@ public @interface Autowired {
 @RequestMethod
 GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE 
 处理requet URL
+
+
+
+#### **@GetMapping**
+
+```java
+@GetMapping("/get")
+public @ResponseBody ResponseEntity<String> get() {
+    return new ResponseEntity<String>("GET Response", HttpStatus.OK);
+}
+Copy
+@GetMapping("/get/{id}")
+public @ResponseBody ResponseEntity<String>
+  getById(@PathVariable String id) {
+    return new ResponseEntity<String>("GET Response : " 
+      + id, HttpStatus.OK);
+}Copy
+```
+
+#### **@PostMapping**
+
+```java
+@PostMapping("/post")
+public @ResponseBody ResponseEntity<String> post() {
+    return new ResponseEntity<String>("POST Response", HttpStatus.OK);
+}Copy
+```
+
+#### **@PutMapping**
+
+```java
+@PutMapping("/put")
+public @ResponseBody ResponseEntity<String> put() {
+    return new ResponseEntity<String>("PUT Response", HttpStatus.OK);
+}Copy
+```
+
+#### **@DeleteMapping**
+
+```java
+@DeleteMapping("/delete")
+public @ResponseBody ResponseEntity<String> delete() {
+    return new ResponseEntity<String>("DELETE Response", HttpStatus.OK);
+}Copy
+```
+
+#### **@PatchMapping**
+
+```java
+@PatchMapping("/patch")
+public @ResponseBody ResponseEntity<String> patch() {
+    return new ResponseEntity<String>("PATCH Response", HttpStatus.OK);
+}Copy
+```
 
