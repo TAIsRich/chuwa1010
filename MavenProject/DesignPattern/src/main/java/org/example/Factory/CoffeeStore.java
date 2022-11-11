@@ -9,10 +9,5 @@ public class CoffeeStore {
         coffee.addSuger();
         coffee.addMilk();
         return coffee;
-
-
-
-
-
     }
 }

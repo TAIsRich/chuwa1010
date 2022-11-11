@@ -5,7 +5,5 @@ public class Client {
         CoffeeStore store = new CoffeeStore();
         Coffee coffee = store.orderCoffee("latte");
         System.out.println(coffee.getName());
-
-
     }
 }
