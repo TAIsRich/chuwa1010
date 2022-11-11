@@ -1,7 +1,9 @@
 # HW 13
 ## 1. List all of the annotations you learned from class and homework to annotaitons.md
 ## 2. What is Spring and Springboot? What is the benfits of using Srpingboot?
-
+- Spring is an application development framework in Java. Main features of Spring includes Spring MVC, JDBC, Security, ORM, AOP, Test, Web Flow, etc..
+- Spring Boot is an extension of Spring, which eliminates the boilerplate configurations required for setting up a Spring application. Featuring default codes and annotation based configuration, Spring Boot enables a faster and more efficient development ecosystem.
+- 
 ## 3. What is IOC and What is DI?
 **IOC: Inversion of Control.**
 The IoC container that is also known as a DI Container is a framework for implementing automatic dependency injection very effectively. It manages the complete object creation and its lifetime, as well as it also injects the dependencies into the classes.
@@ -32,6 +34,7 @@ public class BeanConfig {
 ```
 ## 5. How to define which package spring need to scan in xml and annotaiton?
 In annotation: @ComponentScan
+Example: @ComponentScan(basePackages = {"com.chuwa.springbasic"})
 In xml：<context:component-scan base-package="packageName"/>, as the example below:
 ```java
 <context:component-scan base-package="com.chuwa.springbasic"/>
@@ -39,6 +42,10 @@ In xml：<context:component-scan base-package="packageName"/>, as the example be
 ```
 ## 6. What is @SpringbootApplication?
 @SpringBootApplication anotation is used to mark a configuration class that declares one or more @Bean methods and also triggers auto-configuration and component scanning.
+A single @SpringBootApplication annotation can be used to enable three features including:
+- @Configuration, which declares a class as the source for bean definitions.
+- @EnableAutoConfiguration, which allows the application to add beans using classpath definitions.
+- @ComponentScan, which directs Spring to search for components in the path specified.
 
 ## 7. How many ways we can define a bean?
 **Class level:**
@@ -55,6 +62,9 @@ cleusChuwaNoComponent"></bean>
 ```
 
 ## 8. What is default bean name for @Component and @Bean?
+- default bean name for @Component is class name converting the first character to lower case.
+- default bean name for @Bean is method name converting the first character to lower case.
+
 It the method name under @Bean. As in the example below, the bean name is "modelMapper", and the type is "ModelMapper".
 ```java
 @Configuration
@@ -68,6 +78,7 @@ public class CommonConfig {
 }
 ```
 ## 9. What is the difference between @component and @service,@repository?
+They are mostly the same, except that they are used for different layers(service, repository, controller). @Component is generic.
 All of the three annotations are class-level. They are define beans.
 **@Component** is a generic stereotype for any Spring-managed component. It is used to mark a Java class as a bean. A Java class annotated with @Component is found during the classpath.
 The Spring Framework pick it up and configure it in the application context as a Spring Bean.
@@ -133,8 +144,9 @@ The priority of finding a bean is:
 @Qualifier > @Primary > By name > throw Exception
 
 ## 13. What is the difference between BeanFactory and ApplicationContext in Spring?
-BeanFactory includes lots of beans.
-ApplicationContext is used to create an IOC.
+The ApplicationContext comes with advanced features, including several that are geared towards enterprise applications, while the BeanFactory comes with only basic features. Therefore, it's generally recommended to use the ApplicationContext, and we should use BeanFactory only when memory consumption is critical.
+
+The application context interface extends BeanFactory to enhance the functionality of BeanFactory.
 
 ## 14. What is the Scope of a Bean? and list the examples for each scope.
 Basic(通用):
@@ -153,3 +165,20 @@ Web (只有web applicaiton用)
 5 global-session. This scopes a bean definition to a global HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.
 
 ## 15. Configure a bean using xml. If bean has parameters/dependencies, how can we configure the bean? (you can google the tutorial how to configure beans in xml, and feel free to ask me any quesitons if you don't understand. it is a little bit old, I am not sure if I need to exaplain it in class)
+```java
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.chuwa.springbasic"/>
+    <bean id="dataNucleusChuwaNoComponent" class = "com.chuwa.springbasic.components.impl.DataNucleusChuwaNoComponent"></bean>
+</beans>
+```
+```java
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+</beans>
+```
