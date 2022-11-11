@@ -40,10 +40,18 @@
 ## Other
 - `@ResponseStatus` defines a class with a returned http response status
 - `@Configuration` defines a Java class as the configuration file for the IOC container
-- `@Bean` tells the IOC container to put the thir-party dependency as a component for the framework
+- `@EnableAutoConfiguration` enables classpath definitions for bean scan
+- `@Bean` is used on method level and tells the IOC container to put the dependency as a component for the framework
+- `@Component` is used on class level and tells the IOC container to put the dependency as a component for the framework
 - `@ControllerAdvice` can define an exception handler to return certain behavior to the controller level
 - `@ExceptionHandler` defines a method to handle a specific exception belong to a exception class
 - `@NotEmpty` defines a field with validation constraint to be not empty
 - `@Email` defines a field with validation constraint to adhere to email format
 - `@Size` defines a field with validation constraint to certain min and max sizes
+- `@ComponentScane` defines a specified path for Spring to search for components to put into IOC container.
+- `@Resource` inejcts a bean by name then by type
+- `@Inject` is the Java standard version of Spring `@Autowired`
+- `@Primary` decorates a bean to let IOC container know the primary bean to choose
+- `@Qualifier` defines a name to let the IOC container use the bean with specfied name
+
 
