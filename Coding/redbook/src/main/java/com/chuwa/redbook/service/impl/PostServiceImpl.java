@@ -106,6 +106,7 @@ public class PostServiceImpl implements PostService {
         PageRequest pageRequest = PageRequest.of(pageNo, pageSize, sort);
 //        PageRequest pageRequest = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
 //        PageRequest pageRequest = PageRequest.of(pageNo, pageSize, Sort.by(sortBy).descending());
+
         Page<Post> pagePosts = postRepository.findAll(pageRequest);
 
         //get content for page object
@@ -124,6 +125,7 @@ public class PostServiceImpl implements PostService {
         postResponse.setLast(pagePosts.isLast());
         return  postResponse;
     }
+
 /*
     private PostDto mapToDTO(Post post){
         PostDto postDto = new PostDto();

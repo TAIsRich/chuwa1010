@@ -84,6 +84,12 @@ The @RestController annotation is itself annotated with the @ResponseBody annota
 @RequestAttribute: It binds a method parameter to request attribute. It provides convenient access to the request attributes from a controller method. 
 With the help of @RequestAttribute annotation, we can access objects that are populated on the server-side.
 
+@JsonProperty: customize the property name in Json.
+
+@JsonPropertyOrder: customize the order of properties in Json file.
+
+@ManytoOne: the relationship between two tables is many to one.
+
 @Query: this annotation can only be used to annotate repository interface methods. The call of the annotated methods will trigger the execution of
 the statement found in it. This annotation supports both native SQL and JPQL.
 
@@ -101,4 +107,6 @@ It is optional in Spring boot, provided that spring-data* or spring-tx are found
 such as: init-method , destroy-method , autowiring , lazy-init , dependency-check , depends-on and scope.
 It is used to mark a method as one that creates a bean and Spring will then add it to the context for us. The return type of the method defines the type of bean that is created.
 
-@Configuration: indicates that the class has @Bean definition methods. So Spring container can process the class and generate Spring Beans to be used in the application. This annotation is part of the spring core framework.
+@Configuration: indicates that the class has @Bean definition methods. So Spring container can process the class and generate 
+Spring Beans to be used in the application. This annotation is part of the spring core framework.
+
