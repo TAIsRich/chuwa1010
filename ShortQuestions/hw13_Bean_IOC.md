@@ -165,7 +165,7 @@ Web (只有web applicaiton用)
 5 global-session. This scopes a bean definition to a global HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.
 
 ## 15. Configure a bean using xml. If bean has parameters/dependencies, how can we configure the bean? (you can google the tutorial how to configure beans in xml, and feel free to ask me any quesitons if you don't understand. it is a little bit old, I am not sure if I need to exaplain it in class)
-```java
+```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
@@ -175,10 +175,36 @@ Web (只有web applicaiton用)
     <bean id="dataNucleusChuwaNoComponent" class = "com.chuwa.springbasic.components.impl.DataNucleusChuwaNoComponent"></bean>
 </beans>
 ```
-```java
+```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+</beans>
+```
+**If bean has parameters/dependencies:**
+//https://www.tutorialspoint.com/spring/constructor_based_dependency_injection.htm
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- arguments -->
+    <bean id = "example" class = "X.Y.Example">
+      <constructor-arg index = "0" value = "1"/>
+      <constructor-arg index = "1" value = "aaa"/>
+   	</bean>
+    
+    <!-- dependency -->
+    <bean id = "a" class = "X.Y.A">
+      <constructor-arg ref = "b"/>
+   	</bean>
+
+   	<bean id = "b" class = "X.Y.B">
+    </bean>
 
 </beans>
 ```
