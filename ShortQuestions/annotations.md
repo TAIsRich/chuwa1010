@@ -38,3 +38,15 @@
 
     1. @Valid: using on controller to validate the data passed into it
     2. Validation annotations: @NotNull, @NotEmpty, @NotBlank, @Min, @Max, @Email
+
+11. @ComponentScan: specify the packages that we want to be scanned for use with @Configuration classes
+
+12. @Component: a generic stereotype for any Spring-managed component
+
+13. @Service: classes at the service layer
+
+14. @Repository: classes at the persistence layer
+
+15. @Primary: set one bean as prime
+
+16. @Qualifier: let the spring to pick one bean to inject if no primary
