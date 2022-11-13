@@ -26,7 +26,7 @@ SpringBoot Annotations
 * `@Bean`: is applied on a method to specify that it returns a bean to be managed by Spring context
 * `@Autowired`:  is to inject the dependancy into a bean
 
-JPA:
+### JPA:
 * `@Entity`: An entity represents a table stored in a database. Every instance of an entity represents a row in the table.
 * `@ID`: defines the primary key
 * `@Table`: define the table name
@@ -35,3 +35,10 @@ JPA:
 * `@ManyToOne`: a single-valued association to another entity class that has many-to-one multiplicity
 * `@ManyToMany`: A relationship is a connection between two types of entities. In the case of a many-to-many relationship, both sides can relate to multiple instances of the other side.
 * `@JoinColumn`:allows you to specify the Foreign Key column name. whoever owns the foreign key column gets the @JoinColumn annotation.
+
+### Handle Exception:
+`@ExceptionHandler`: Method Level, used to handle the specific exceptions and sending the custom responses to the client
+`@ControllerAdvice`: Class Level, to handle the exceptions globally
+
+### Validation:
+`@valid`: method level validation. We also use it to mark a member attribute for validation
