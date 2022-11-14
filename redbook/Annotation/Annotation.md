@@ -48,3 +48,4 @@
 27. @valid the request param to valid 
 28. @Bean  tells the spring to add this to IOC
 29. @Configuration tells that there is something in this class need to scan and add to IOC
+30. @RestController = @Controller + @ResponseBody
