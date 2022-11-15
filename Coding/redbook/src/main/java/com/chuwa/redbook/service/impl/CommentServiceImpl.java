@@ -8,6 +8,7 @@ import com.chuwa.redbook.exception.BlogAPIException;
 import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.CommentDto;
 import com.chuwa.redbook.service.CommentService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -23,9 +24,17 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private PostRepository postRepository;
 
+    /**
+     * use this modelMapper to replace the mapToDto, mapToEntity methods.
+     */
+    @Autowired
+    private ModelMapper modelMapper;
+
     @Override
     public CommentDto createComment(long postId, CommentDto commentDto) {
-        Comment comment = new Comment();
+        //Comment comment = mapToEntity(commentDto); //no longer use self-defined map function
+
+        Comment comment = modelMapper.map(commentDto, Comment.class);
         //retrieve post entity by id
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new ResourceNotFoundException("Post", "id", postId));
@@ -34,7 +43,8 @@ public class CommentServiceImpl implements CommentService {
 
         //comment entity to DB
         Comment savedComment = commentRepository.save(comment);
-        return mapToDto(savedComment);
+        //return mapToDto(savedComment); no need to use our self-defined method, instead, we use modelMapper
+        return modelMapper.map(savedComment, CommentDto.class);
     }
 
     @Override
@@ -44,7 +54,7 @@ public class CommentServiceImpl implements CommentService {
 
         //convert list of comment entities to list of comment DTOs
         List<CommentDto> commentDtos = comments.stream()
-                .map(comment -> mapToDto(comment))
+                .map(comment -> modelMapper.map(comment, CommentDto.class))
                 .collect(Collectors.toList());
         return commentDtos;
     }
@@ -63,7 +73,7 @@ public class CommentServiceImpl implements CommentService {
         if (!comment.getPost().getId().equals(post.getId())) {
             throw new BlogAPIException(HttpStatus.BAD_REQUEST, "Comment does not belong to post");
         }
-        return mapToDto(comment);
+        return modelMapper.map(comment, CommentDto.class);
     }
 
     @Override
@@ -86,7 +96,7 @@ public class CommentServiceImpl implements CommentService {
         comment.setBody(commentDtoRequest.getBody());
 
         Comment updatedComment = commentRepository.save(comment);
-        return mapToDto(updatedComment);
+        return modelMapper.map(updatedComment, CommentDto.class);
     }
 
     @Override
@@ -105,6 +115,7 @@ public class CommentServiceImpl implements CommentService {
         commentRepository.delete(comment);
     }
 
+    // not used since we have used modelMapper
     private CommentDto mapToDto(Comment comment) {
         CommentDto commentDto = new CommentDto();
         commentDto.setId(comment.getId());
@@ -121,6 +132,7 @@ public class CommentServiceImpl implements CommentService {
         comment.setBody(commentDto.getBody());
         comment.setEmail(commentDto.getEmail());
         comment.setBody(commentDto.getBody());
+        comment.setName(commentDto.getName());
 
         return comment;
     }

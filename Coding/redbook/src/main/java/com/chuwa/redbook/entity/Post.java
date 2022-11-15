@@ -5,6 +5,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -31,6 +33,12 @@ public class Post {
 
     @Column(name = "content", nullable = false)
     private String content;
+
+    // 多余的操作， 因为我们在Comment里已经建立了与Post的联系关系
+    // 但是这样的话我们就创建了一个变量去hold一个post里的所有comment信息
+    //这样在getPost时，我们同时也能看到该post里的所有comment
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Comment> comments = new HashSet<>();
 
     @CreationTimestamp
     private LocalDateTime createDateTime;
@@ -77,6 +85,14 @@ public class Post {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 
     public LocalDateTime getCreateDateTime() {
