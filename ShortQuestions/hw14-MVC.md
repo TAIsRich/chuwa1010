@@ -31,6 +31,8 @@ How it works:
 
 ## 5. What is JSP and What is ModelAndView?(please google to have a basic knowlege)
 Jakarta Server Pages (formerly JavaServer Pages) is a Java standard technology that developers use to write dynamic, data-driven web pages for Java web applications. JSP is built on top of the Java Servlet (aka Jakarta Servlet) specification and is one of the Java web technologies included for ongoing support and upgrades in Jakarta EE.
+ModelAndView is a holder for both **Model** and **View** in the web MVC framework. It holds both to make it possible for a controller to return both model and view in a single return value.
+The model is a Map that stores data. The view can be a String view name or a view object that will need to be resolved by View Resolver.
 
 ## 6. Could you please google any other servlets(理解多少是多少，不要花太多时间， 知道servlet的名字就行。)
 A servlet is a Java programming language class that is used to extend the capabilities of servers that host applications accessed by means of a request-response programming model. Although servlets can respond to any type of request, they are commonly used to extend the applications hosted by web servers. For such applications, Java Servlet technology defines HTTP-specific servlet classes.
