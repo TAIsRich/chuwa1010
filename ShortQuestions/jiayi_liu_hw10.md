@@ -4,7 +4,7 @@
 
    
 
-2. #### type the code, you need to checkout new branch from branch **02_post_RUD**, name the new branch with **https://github.com/TAIsRich/springboot-redbook/ tree/hw05_01_slides_JPQL**.
+2. #### type the code, you need to checkout new branch from branch **02_post_RUD**, name the new branch with **https://github.com/TAIsRich/springboot-redbook/tree/hw05_01_slides_JPQL**.
 
    
 
@@ -12,7 +12,7 @@
 
 3. #### What is JPQL?
 
-   JPQL is Java Persistence Query Languages, which syntax is very similar to the SQL syntax. JQPL works with Java classes and instances.
+   JPQL is Java Persistence Query Languages defined in JPA specification, which syntax is very similar to the SQL syntax. JQPL works with Java classes and instances.
 
    
 
@@ -48,7 +48,7 @@
 
    **SessionFactory** 
 
-   - It is an Interface which is present in org.hibernate package and it is used to create Session Object.
+   - It is an Interface which is present **in org.hibernate package** and it is used to create Session Object.
 
    - It is immutable and thread-safe in nature.
 
@@ -61,7 +61,7 @@
 
    **Session** 
 
-   - Session is an interface which is present in org.hibernate package. Session object is created based upon SessionFactory object i.e. factory.
+   - **Session is an interface which is present in org.hibernate package. Session object is created based upon SessionFactory object i.e. factory.**
    - It opens the Connection/Session with Database software through Hibernate Framework.
    - It is a light-weight object and it is not thread-safe.
    - Session object is used to perform CRUD operations.
@@ -88,13 +88,89 @@
 
 10. #### What is hibernate Caching?
 
-    Hibernate Caching is the Spring Data JPA Hibernate mechanism with a lazy read from the database that provides a persistance level caching to read data if data is already fetched from database.
+    **Hibernate caching acts as a layer between the actual database and your application**. It reduces the time taken to obtain the required data — **as it fetches from memory instead of directly hitting the database**. It is very useful when you need to fetch the same kind of data multiple times.
+
+    **There are mainly two types of caching:**
+
+    - First level cache
+    - Second-level cache
+
+    
 
 11. #### What is the difference between first-level cache and second-level cache?
 
-    First-level cache gets data from the session level and is turned on by default.
+    URL: https://medium.com/swlh/what-is-hibernate-caching-introduction-of-level-1-level-2-cache-8ea7339a5052#:~:text=Hibernate%20caching%20acts%20as%20a,kind%20of%20data%20multiple%20times.
 
-    The second-level cache gets data from cross-sessions level and has to be turned on by configuration.
+    #### ***First-level cache gets data from the session level and is turned on by default.***
+
+    when you query an entity or object, **for the very first time it is retrieved from the database and stored into the first-level cache (associated with the hibernate session)**. 
+
+    If we query for the same entity or object again with the same session object, **for the second time of same query in the same session, it will be loaded from cache and no SQL query will be executed.** Take a look at the below code snippet.
+
+    ```java
+    // We have one record in DB with the Employee details like, 101, John Doe, UK
+    
+    // Open hibernate session
+    Session session = HibernateUtil.getSessionFactory().openSession();
+    session.beginTransaction();
+    
+    //the first time
+    // Fetch an Employee entity from the database very first time
+    Employee employee = (Employee) session.load(Employee.class, empId);
+    System.out.println("First call output : " + employee.getName());
+    
+    //the second time
+    // Request for Employee entity again
+    employee = (Employee) session.load(Employee.class, empId);
+    System.out.println("Second call output : "employee.getName());
+     
+    session.getTransaction().commit();
+    HibernateUtil.shutdown();
+     
+    // Output:
+    // First call output : John Doe
+    // Second call output : John Doe
+    ```
+
+    
+
+    #### ***The second-level cache gets data from cross-sessions level and has to be turned on by configuration.***
+
+    Suppose your application has 2 active sessions session1 and session2 respectively. Now, session1 has requested data having id=101 so that will be fetched from a database as it is the first call, and then it is stored into the second-level (SessionFactory) as well as in the first-level (session) cache also. Now, session2 requires the same data so it has also been queried with the same id=101. So this time session2 will get data from the SessionFactory, it will not going to hit the database. Take a look at the below code snippet.
+
+    ```java
+    // Open hibernate session
+    Session session = HibernateUtil.getSessionFactory().openSession();
+    session.beginTransaction();
+    
+    // Employee entity is fecthed very first time (It will be cached in both first-level and second-level cache)
+    Employee employee = (Employee) session.load(Employee.class, empId);
+    System.out.println(employee.getName());
+    
+    // Fetch the employee entity again
+    employee = (Employee) session.load(Employee.class, empId);
+    System.out.println(employee.getName()); //It will return from the first-level
+    
+    // Evict from first level cache (That will remove employee object from first-level cache)
+    session.evict(employee);
+    
+    // Fetch same entity again using same session
+    employee = (Employee) session.load(Employee.class, empId);
+    System.out.println(employee.getName()); //It will return from the second-level
+    
+    // Fetch same entity again using another session
+    employee = (Employee) anotherSession.load(Employee.class, empId);
+    System.out.println(employee.getName());//It will return from the second-level
+    
+    System.out.println("Response from the first-level : " + HibernateUtil.getSessionFactory().getStatistics().getEntityFetchCount());
+    System.out.println("Response from the second-level : " + HibernateUtil.getSessionFactory().getStatistics().getSecondLevelCacheHitCount());
+     
+    // Output:
+    // Response from the first-level : 1
+    // Response from the second-level : 2
+    ```
+
+    
 
     
 
