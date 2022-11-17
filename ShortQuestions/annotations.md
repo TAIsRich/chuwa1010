@@ -110,3 +110,6 @@ It is used to mark a method as one that creates a bean and Spring will then add 
 @Configuration: indicates that the class has @Bean definition methods. So Spring container can process the class and generate 
 Spring Beans to be used in the application. This annotation is part of the spring core framework.
 
+@Qualifier: There may be a situation when you create more than one bean of the same type and want to wire only one of them with a property. 
+In such cases, you can use the @Qualifier annotation along with @Autowired to remove the confusion by specifying which exact bean will be wired. 
+Basically, it could help identify which bean we want to use.
