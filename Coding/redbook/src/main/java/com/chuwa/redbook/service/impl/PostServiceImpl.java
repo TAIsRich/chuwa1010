@@ -6,6 +6,8 @@ import com.chuwa.redbook.exception.ResourceNotFoundException;
 import com.chuwa.redbook.payload.PostDto;
 import com.chuwa.redbook.payload.PostResponse;
 import com.chuwa.redbook.service.PostService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -18,11 +20,16 @@ import java.util.stream.Collectors;
 @Service
 public class PostServiceImpl implements PostService {
 
+//    private PostRepository postRepository;
+//    public PostServiceImpl(PostRepository postRepository) {
+//        this.postRepository = postRepository;
+//    } // the same as the following line:
+
+    @Autowired
     private PostRepository postRepository;
 
-    public PostServiceImpl(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
     public PostDto createPost(PostDto postDto) {
@@ -37,7 +44,8 @@ public class PostServiceImpl implements PostService {
 
         // let make it as a method, just for simplifying the format
         // convert DTO to entity
-        Post post = mapToEntity(postDto);
+        //Post post = mapToEntity(postDto);// use modelMapper instead
+        Post post = modelMapper.map(postDto, Post.class);
 
         //call save method of DAO, it will save the information from entity into MySQL database
         // save() will return the data entity in database
@@ -52,8 +60,8 @@ public class PostServiceImpl implements PostService {
         // we create a mapToDTO method, also to simplify the format
 
         // convert entity to DTO, DTO will be used by controller
-        PostDto postResponse = mapToDTO(savedPost);
-
+        //PostDto postResponse = mapToDTO(savedPost);// use modelMapper instead
+        PostDto postResponse = modelMapper.map(savedPost, PostDto.class);
         return postResponse;
     }
 
@@ -63,7 +71,7 @@ public class PostServiceImpl implements PostService {
     public List<PostDto> getAllPosts() {
         List<Post> posts = postRepository.findAll();
         List<PostDto> postDtos = posts.stream()
-                .map(p -> mapToDTO(p))
+                .map(p -> modelMapper.map(p, PostDto.class))
                 .collect(Collectors.toList());
         return postDtos;
     }
@@ -83,7 +91,7 @@ public class PostServiceImpl implements PostService {
         // above three lines can be integrated into one:
 
         Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Post", "id", id));
-        return mapToDTO(post);
+        return modelMapper.map(post, PostDto.class);
     }
 
     @Override
@@ -96,7 +104,7 @@ public class PostServiceImpl implements PostService {
 
         //save the updated post back into database, and return an entity that reflects the latest data
         Post updatedPost = postRepository.save(post);
-        return mapToDTO(updatedPost);
+        return modelMapper.map(updatedPost, PostDto.class);
     }
 
     @Override
@@ -125,7 +133,7 @@ public class PostServiceImpl implements PostService {
         // get content for page object
         List<Post> posts = pagePosts.getContent();
         List<PostDto> postDtos = posts.stream()
-                .map(post -> mapToDTO(post))
+                .map(post -> modelMapper.map(post, PostDto.class))
                 .collect(Collectors.toList());
 
         // we integrate Page object with postDtos,
@@ -141,6 +149,7 @@ public class PostServiceImpl implements PostService {
         return postResponse;
     }
 
+    //no longer use these method as we now implement modelMapper
     private Post mapToEntity(PostDto postDto) {
         Post post = new Post();
         post.setTitle(postDto.getTitle());
