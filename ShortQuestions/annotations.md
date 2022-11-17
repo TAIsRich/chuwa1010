@@ -53,8 +53,25 @@ public interface PostRepository extends JpaRepository<Post, Long> {}
 declare restful controller
 ### @RequestMapping
 set request url
+### @Qualifier
+define which implementation bean inject
+```angular2html
+@Qualifier("bean1")
+private BeanInterface bean;
+```
+### @Primary
+define which implementation bean  primarily inject
+```angular2html
+@Bean
+    @Primary
+    public BeanInterface bean1(){ return new bean1()}
+```
 ### @Autowired
 inject collaborating beans to this class
+By Type > By Name
+### @Resource
+inject collaborating beans to this class.
+By Name > By Type
 ### @PostMapping
 declare receiving post request
 ### @GetMapping
@@ -188,3 +205,15 @@ order the json properties
 set the attribute's name in JSON
 `@JsonProperty("username")
 private String name;`
+
+### @Configuration
+which declares a class as the source for bean definitions
+### @EnableAutoConfiguration
+which allows the application to add beans using classpath definitions
+### @ComponentScan
+which directs Spring to search for components in the path specified
+```angular2html
+@Configuration
+@ComponentScan(basePackages = {"example"})
+```
+
