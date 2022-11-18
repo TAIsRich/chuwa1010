@@ -48,7 +48,7 @@
 - `@NotEmpty` defines a field with validation constraint to be not empty
 - `@Email` defines a field with validation constraint to adhere to email format
 - `@Size` defines a field with validation constraint to certain min and max sizes
-- `@ComponentScane` defines a specified path for Spring to search for components to put into IOC container.
+- `@ComponentScan` defines a specified path for Spring to search for components to put into IOC container.
 - `@Resource` inejcts a bean by name then by type
 - `@Inject` is the Java standard version of Spring `@Autowired`
 - `@Primary` decorates a bean to let IOC container know the primary bean to choose
