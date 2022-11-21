@@ -176,7 +176,10 @@
 
 12. #### How do you understand @Transactional? (不要clone，要自己抄写并测试transactional，https://github.com/TAIsRich/tutorial-transaction)
 
+    Please see in Coding/MavenProject/transaction
+
     
 
 13. #### Write a simple factory design pattern.
 
+​		Please see in Coding/MavenProject/design-patterns
