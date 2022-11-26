@@ -72,7 +72,11 @@
 
     It is a method-level annotation. It is an alternative of XML <bean> tag. It tells the method to produce a bean to be managed by Spring Container.
 
-19. ###### `@Configuration`: 
+19. ###### `@Value`
+
+    It is used to assign default values to variables and method argumens.
+
+20. ###### `@Configuration`
 
     It is a class-level annotation. The class annotated with `@Configuration` used by Spring Containers as a source of bean definitions.
 
