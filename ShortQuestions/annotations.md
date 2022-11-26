@@ -113,3 +113,9 @@ Spring Beans to be used in the application. This annotation is part of the sprin
 @Qualifier: There may be a situation when you create more than one bean of the same type and want to wire only one of them with a property. 
 In such cases, you can use the @Qualifier annotation along with @Autowired to remove the confusion by specifying which exact bean will be wired. 
 Basically, it could help identify which bean we want to use.
+
+@Mock: it is used to mock the objects.
+
+@InjectMocks:creates an instance of the class and injects the mocks that are created with the @Mock annotations into this instance; inject mockdata into method.
+
+@spy: Mocks are used to create fully mock or dummy objects. It is mainly used in large test suites. Spies are used for creating partial or half mock objects.
