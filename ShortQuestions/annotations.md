@@ -174,3 +174,11 @@
 ## Other
 
 - `@ResponseStatus` defines a class with a returned http response status
+
+- ```java
+  @EnableWebSecurity
+  ```
+
+  
+
+- 
