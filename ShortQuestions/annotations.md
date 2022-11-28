@@ -134,3 +134,23 @@
 1. @JsonProperty
 
    it is used to map property names with JSON keys during serialization and deserialization
+
+## JUnit Test
+
+1. Setup
+   - @BeforeAll (class level, must be static)
+   - @BeforeEach (method level)
+2. Test Execution
+   - @Test
+3. Cleanup
+   - @AfterAll (class level, must be static)
+   - @AfterEach (method level)
+
+## Mockito
+
+1. at the Test class level
+   - @ExtendWith(MockitoExtension.class)
+2. inside the Test class
+   - @Mock: creates a mock
+   - @Spy: creates a spy, which is a partially mock object
+   - @InjectMocks: creates a class instance and inject the mocks into it
