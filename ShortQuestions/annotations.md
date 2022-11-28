@@ -80,6 +80,30 @@
 
     It is a class-level annotation. The class annotated with `@Configuration` used by Spring Containers as a source of bean definitions.
 
+21. ###### `@Mock`
+
+    It is used to mock the objects that helps in minimizing the repetitve mock objects. It makes the test code and verification error easier to read as parameter names (field names) are used to identify the mocks.
+
+22. ###### `@Spy`
+
+    It is to create wrapped objects whose behavior is tracked and could be verified in tests.
+
+23. ###### `@InjectMocks`
+
+    It marks a field or parameter on which the injection should be performed. It allows shorthand mock and spy injections and minimizes the repetitive mocks and spy injection. In Mockito, the mocks are injected either by setter injection, constructor injection, and property injection.
+
+24. ###### `@BeforeAll`
+
+    `@BoforeAll` is used to signal that the **annotated method should be executed before all the `@Test`, `@RepeatedTest`, `@ParameterizedTest`, and `@TestFactory` methods in the current class**.
+
+25. ###### `@AfterAll`
+
+    `@AfterAll` is used to signal that the annotated method should be executed after all tests in the current test class.
+
+    
+
+    
+
     
 
 
