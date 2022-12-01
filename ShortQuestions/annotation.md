@@ -1,3 +1,4 @@
+
 ### @Table
 declare table
 ### @Entity
@@ -13,7 +14,15 @@ declare attribute
 ### @UpdateTimestamp
 set this property as update timestamp of containing entity
 ### @CreationTimestamp
+
 set property as the creation timestamp of the containing entity
+@Entity - it is a enity, will be used to map with database
+@Table - will be used to locate the database table name
+@Id - this column is a primary key
+@GeneratedValue(strategy = GenerationType.IDENTITY) - 主键⾃增的策略
+@Column(name = "description", nullable = false) - specify the
+informaiton for this column, like name in database, can be null or not in
+database
 
 ### @Repository
 declare dao
