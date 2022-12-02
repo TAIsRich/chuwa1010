@@ -118,7 +118,7 @@ public class PostServiceImpl implements PostService {
         // Sort Class is provided by Springboot frame
         // we just compare our variable sortDir with String "asc",
         // if equal, we sort by ascending order, otherwise descending
-        // not that Sort.by() is a static method, there are 2 key things
+        // note that Sort.by() is a static method, there are 2 key things
         // one is sortBy, like we want to sort by id, the other is .ascending() or .descending()
         Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortBy).ascending()
                 : Sort.by(sortBy).descending();
@@ -148,7 +148,7 @@ public class PostServiceImpl implements PostService {
 
         return postResponse;
     }
-
+    /**
     //no longer use these method as we now implement modelMapper
     private Post mapToEntity(PostDto postDto) {
         Post post = new Post();
@@ -168,5 +168,5 @@ public class PostServiceImpl implements PostService {
 
         return postDto;
     }
-
+    */
 }

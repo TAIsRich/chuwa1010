@@ -38,12 +38,15 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(long id, String name, String email, String body) {
+    public Comment(long id, String name, String email, String body, LocalDateTime createDateTime, LocalDateTime updateDateTime) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.body = body;
+        this.createDateTime = createDateTime;
+        this.updateDateTime = updateDateTime;
     }
+
 
     public Post getPost() {
         return post;
