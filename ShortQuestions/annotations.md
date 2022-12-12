@@ -143,6 +143,7 @@ can define JPQL or SQL query
 ### @Transactional
 
 ###  @PersistenceContext
+@PersistenceContext takes care to create a unique EntityManager for every thread
 
 ### @Configuration
 configure a class in project, similar with xml configuration file;
@@ -216,4 +217,39 @@ which directs Spring to search for components in the path specified
 @Configuration
 @ComponentScan(basePackages = {"example"})
 ```
+### @EnableWebSecurity
+launch web security
+### @EnableGlobalMethodSecurity(prePostEnabled = true)
+launch authorization
+```
+@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class SecurityConfig extends WebSecurityConfigurerAdapter {...}
+```
+### @PreAuthorize("hasRole('admin')")
+if the request is from a client with admin role, it could reach the resource, otherwise could not
+### @ExtendWith(class)
+### @RunWith(class)
+### @Suite.SuiteClasses(class)
+### @Mock
+### @Spy
+### @InjectMocks
+### @MockBeans
+### @BeforeEach
+### @BeforeAfter
+### @BeforeAll
+### @Test
+### @AfterEach
+### @AfterAll
+### @SpringBootTest
+### @DataJpaTest
+### @Aspect
+### @Pointcut("execution()")
+### @Before(function)
+### @After
+### @Around
+### @AfterReturning
+### @AfterThrowing
+### 
 
