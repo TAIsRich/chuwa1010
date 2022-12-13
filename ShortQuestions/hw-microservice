@@ -1,0 +1,89 @@
+# HW- Microservice
+## 1. list all of the new annotations you learned to your annotations.md
+
+## 2.  Document the microservice architecture and components/tools/dependencies
+1.Spring cloud: provide tools for microservice.
+2. API gateway: its functions includes: rounting requests to different services, load balance; implement login and authentication; log and monitor.
+The popular API gateway are: Zuul. zuul2, and Spring cloud gateway.
+It can forward external requests to specific services. This means that the entire microservices system can be accessible under one
+ URL but can use different microservices internally.
+3. Eureka:service registry center, used for service discovery. Eureka register service by serviceid, monitor service health status, auto-register new services.
+Service discovery is the process of automatically detecting devices and services on a computer network. This reduces the need for
+manual configuration by users and administrators. A service discovery protocol is a network protocol that helps accomplish service discovery
+4. Ribbon: load balancer, enable service to scale well and stay highly available when traffic load increases.
+5. Hystrix: circuit breaker. When a service is down, trigger the fallbackMethod to avoid user to wait a long time for request response.
+6. Config server: configurations.
+7. Kafka: message queue, communication between services.
+8. Docker: container, used as service container. Each service has its own container.
+
+Dependencies:
+//kafka
+<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+</dependency>
+<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka-test</artifactId>
+			<scope>test</scope>
+</dependency>
+//API Gateway
+<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
+
+//Eureka server service
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+</dependency>
+
+//producer service
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+</dependency>
+
+//consumer service
+<dependencies>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+    <version>2.2.10.RELEASE</version>
+</dependency>
+</dependencies>
+
+Deploy: needs to install kafka and zookepper.
+Commands example to start kafka and zookepper:
+start kafka: AmyLius-MacBook-Pro:kafka_2.13-3.3.1 amyliu$ ./bin/kafka-server-start.sh ./config/server.properties
+start zookeeper: AmyLius-MacBook-Pro:kafka_2.13-3.3.1 amyliu$ ./bin/zookeeper-server-start.sh ./config/zookeeper.properties
+
+API test examples in postman:
+Get: http://localhost:8080/api/v1/kafka/publish
+Post message:http://localhost:8080/api/v1/kafka/publish
+
+## 3.  What are Resilience patterns? What is circuit breaker?
+Resilience means the capability to recover when stressed by load.
+Resilience patterns are a type of service architecture that help to prevent cascading failures and to preserve functionality in the event of service failure.
+Circuit breakers are a design pattern to create resilient microservices by limiting the impact of service failures and latencies.
+Circuit breaker is a design pattern used in software development. It is used to detect failures and encapsulates the logic of preventing a failure from
+constantly recurring, during maintenance, temporary external system failure or unexpected system difficulties.
+
+## 4.  Watching the below videos. and write your understanding about microservice
+Microservices are a architecture design pattern. It split services into small components/services, mostly via domain -driven design.
+The advantages:
+update/modify one service without downtime of entire application;
+easily scale up to add more services;
+use different tech stacks for each service.
+Disadvantages:
+communication between services requires more time and resources;
+need more server and people to maintain each servers.
