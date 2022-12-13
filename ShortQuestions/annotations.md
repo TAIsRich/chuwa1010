@@ -10,7 +10,8 @@ SpringBoot Annotations
 * `@GetMapping`: annotation maps HTTP GET requests onto specific handler methods. It is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET).
 * `@RequestMapping`:  is used to map HTTP requests to handler methods of MVC and REST controllers
 * `@RequestParam`: allows you to send parameters in the get request and use them in Java. It also supplies a default value.
-
+* `@RequestBody`:
+* 
 ### Bean Types
 * `@Component`: allows Spring to automatically detect our custom beans
 * `@Service`: is a specialization of @Component annotation, @Service are used to write business logic in a different layer
@@ -40,6 +41,10 @@ SpringBoot Annotations
 
 ### Validation:
 * `@valid`: method level validation. We also use it to mark a member attribute for validation
+* `@NotEmpty`
+* `@Email`
+* `@Size`
+
 
 ### Dependency Injections:
 * `@Autowired`: is to inject the dependency into a bean, by type - > by name
@@ -47,3 +52,15 @@ SpringBoot Annotations
 * `@Inject`: do dependency injection
 * `@Qualifier`: indicates specific bean should be autowired when there are multiple candidates.
 * `@Primary`: indicates that a bean should be given preference when multiple candidates are qualified to autowire a single-valued dependency.
+
+### Testing
+* `@Mock`
+* `@InjectMock`
+* `@Spy`
+* `@MockBean`
+* `@SpringBootTest`
+* `@BeforeAll`
+* `@BeforeEach`
+* `@Test`
+* `@AfterEach`
+* `@AfterAll`
