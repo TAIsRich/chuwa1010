@@ -50,3 +50,14 @@
 15. @Primary: set one bean as prime
 
 16. @Qualifier: let the spring to pick one bean to inject if no primary
+
+17. AOP
+
+    1. @Before: Run before the method execution
+    2. @After: Run after the method returned a result
+    3. @AfterReturning: Run after the method returned a result, intercept the returned result as well.
+    4. @AfterThrowing: Run after the method throws an exception
+    5. @Around: Run around the method execution, combine all three advices above.
+    6. @Aspect: indicate this is a aop class
+    7. @Component: This annotation mark the beans as Spring’s managed components
+    8. @Before: annotated methods run exactly before all methods matching with pointcut expression
