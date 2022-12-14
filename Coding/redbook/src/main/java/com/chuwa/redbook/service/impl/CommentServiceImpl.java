@@ -115,6 +115,7 @@ public class CommentServiceImpl implements CommentService {
         commentRepository.delete(comment);
     }
 
+    /**
     // not used since we have used modelMapper
     private CommentDto mapToDto(Comment comment) {
         CommentDto commentDto = new CommentDto();
@@ -136,5 +137,5 @@ public class CommentServiceImpl implements CommentService {
 
         return comment;
     }
-
+    */
 }

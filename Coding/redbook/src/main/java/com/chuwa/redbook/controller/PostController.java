@@ -7,6 +7,7 @@ import com.chuwa.redbook.util.AppConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -23,6 +24,12 @@ public class PostController {
     private PostService postService;
 
     // the return of all the following method will directly to POSTMAN
+
+    //@PreAuthorize("hasRole('ADMIN')")
+    // if we add PreAuthorize Annotation, then only ADMIN role can create a post
+    // note that although we use 'ADMIN' in annotation, It is corresponded to "ROLE_ADMIN" in role table in DB
+    // it is a rule of SpringBoot to use ROLE_*** in DB, and use hasRole('***') in @PreAuthorize annotation
+    // just remember, don't ask why
     @PostMapping // Http POST -->
     public ResponseEntity<PostDto> createPost(@Valid @RequestBody PostDto postDto) {
         PostDto postResponse = postService.createPost(postDto);
