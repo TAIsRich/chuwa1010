@@ -114,4 +114,7 @@ Spring Beans to be used in the application. This annotation is part of the sprin
 In such cases, you can use the @Qualifier annotation along with @Autowired to remove the confusion by specifying which exact bean will be wired. 
 Basically, it could help identify which bean we want to use.
 
+@HystrixCommand(fallbackMethod = "handleCitizenDownTime"): when failed, then call handleCitizenDownTime method to handle in microservice.
+
 @Aspect: indicate this is an AOP class.
+
