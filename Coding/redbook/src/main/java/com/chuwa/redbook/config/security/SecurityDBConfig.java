@@ -28,6 +28,14 @@ public class SecurityDBConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+//    @Autowired
+//    private JwtAuthenticationEntryPoint authenticationEntryPoint;
+//
+//    @Bean
+//    public JwtAuthenticationFilter jwtAuthenticationFilter() {
+//        return new JwtAuthenticationFilter();
+//    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
