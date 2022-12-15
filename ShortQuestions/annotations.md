@@ -119,3 +119,13 @@ Basically, it could help identify which bean we want to use.
 @InjectMocks:creates an instance of the class and injects the mocks that are created with the @Mock annotations into this instance; inject mockdata into method.
 
 @spy: Mocks are used to create fully mock or dummy objects. It is mainly used in large test suites. Spies are used for creating partial or half mock objects.
+
+@PreAuthorize @PostAuthorize: both @PreAuthorize and @PostAuthorize annotations provide expression-based access control.
+The @PreAuthorize annotation checks the given expression before entering the method, whereas the 
+@PostAuthorize annotation verifies it after the execution of the method and could alter the result.
+@PreAuthorize(“hasRole(‘ROLE_VIEWER')”) 
+
+@HystrixCommand(fallbackMethod = "handleCitizenDownTime"): when failed, then call handleCitizenDownTime method to handle in microservice.
+
+@Aspect: indicate this is an AOP class.
+
