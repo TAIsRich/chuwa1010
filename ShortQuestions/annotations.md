@@ -118,3 +118,8 @@ Basically, it could help identify which bean we want to use.
 The @PreAuthorize annotation checks the given expression before entering the method, whereas the 
 @PostAuthorize annotation verifies it after the execution of the method and could alter the result.
 @PreAuthorize(“hasRole(‘ROLE_VIEWER')”) 
+
+@HystrixCommand(fallbackMethod = "handleCitizenDownTime"): when failed, then call handleCitizenDownTime method to handle in microservice.
+
+@Aspect: indicate this is an AOP class.
+
