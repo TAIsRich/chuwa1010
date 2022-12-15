@@ -115,3 +115,6 @@ In such cases, you can use the @Qualifier annotation along with @Autowired to re
 Basically, it could help identify which bean we want to use.
 
 @HystrixCommand(fallbackMethod = "handleCitizenDownTime"): when failed, then call handleCitizenDownTime method to handle in microservice.
+
+@Aspect: indicate this is an AOP class.
+
